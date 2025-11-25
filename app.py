@@ -8,14 +8,17 @@ import time
 from recommendation_system import AdvancedBookRecommendationSystem
 from data_generator import generate_book_data
 import utils
+from auth import check_authentication, logout
 
 # Configure page
 st.set_page_config(
-    page_title="AI-Powered Book Recommendation System",
+    page_title="BookWise - AI Book Recommendations",
     page_icon="📚",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+check_authentication()
 
 # Initialize session state
 if 'rec_system' not in st.session_state:
@@ -25,53 +28,123 @@ if 'rec_system' not in st.session_state:
 if 'current_user' not in st.session_state:
     st.session_state.current_user = 1
 
-if 'theme' not in st.session_state:
-    st.session_state.theme = 'light'
-
-# Custom CSS for professional styling
+# Custom CSS for modern, attractive styling
 st.markdown("""
 <style>
-    .main-header {
-        font-size: 3rem;
-        font-weight: 700;
-        color: #1f77b4;
-        text-align: center;
-        margin-bottom: 2rem;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    * {
+        font-family: 'Inter', sans-serif;
     }
+    
+    .main-header {
+        font-size: 3.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
     .sub-header {
-        font-size: 1.5rem;
+        text-align: center;
+        color: #666;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+    }
+    
+    .user-badge {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
         font-weight: 600;
+        display: inline-block;
         margin-bottom: 1rem;
     }
+    
     .metric-card {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin: 0.5rem 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .metric-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .book-card {
         background: white;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin: 1rem 0;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+    }
+    
+    .book-card:hover {
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        transform: translateX(5px);
+    }
+    
+    .algorithm-badge {
+        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        display: inline-block;
         margin: 0.5rem 0;
     }
-    .algorithm-description {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 8px;
-        margin: 1rem 0;
-        border-left: 4px solid #1f77b4;
+    
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 2rem;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        padding: 0 2rem;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+    div[data-testid="stMetricValue"] {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #667eea;
+    }
+    
+    .recommendation-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        text-align: center;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown('<h1 class="main-header">📚 AI-Powered Book Recommendation System</h1>', unsafe_allow_html=True)
-st.markdown("### Advanced Machine Learning Project with Hybrid Ensemble Approach")
+st.markdown('<h1 class="main-header">📚 BookWise</h1>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">AI-Powered Book Recommendation System | Advanced Machine Learning Project</p>', unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.markdown(f'<div class="user-badge">👤 Welcome, {st.session_state.username}!</div>', unsafe_allow_html=True)
 
 # Sidebar
 with st.sidebar:
     st.header("🎛️ Control Panel")
     
-    # Theme toggle
-    theme_option = st.selectbox("🎨 Theme", ["Light", "Dark"])
-    if theme_option.lower() != st.session_state.theme:
-        st.session_state.theme = theme_option.lower()
+    if st.button("🚪 Logout", use_container_width=True):
+        logout()
     
     st.markdown("---")
     
@@ -125,7 +198,7 @@ with st.sidebar:
 tab1, tab2, tab3, tab4 = st.tabs(["🎯 Recommendations", "📈 Analytics Dashboard", "🔬 Algorithm Details", "📊 Performance Metrics"])
 
 with tab1:
-    st.header("Personalized Book Recommendations")
+    st.markdown('<div class="recommendation-header"><h2>🎯 Your Personalized Book Recommendations</h2></div>', unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
     
@@ -166,26 +239,21 @@ with tab1:
         
         generation_time = time.time() - start_time
         
-        st.success(f"Generated {len(recommendations)} recommendations using {algo_name} in {generation_time:.3f} seconds")
+        st.markdown(f'<div class="algorithm-badge">✨ {algo_name} • {generation_time:.3f}s • {len(recommendations)} books</div>', unsafe_allow_html=True)
         
-        # Display recommendations
+        # Display recommendations with improved styling
         for i, (_, book) in enumerate(recommendations.iterrows(), 1):
-            with st.container():
-                col_rank, col_title, col_details = st.columns([1, 3, 2])
-                
-                with col_rank:
-                    st.markdown(f"### #{i}")
-                
-                with col_title:
-                    st.markdown(f"**{book['title']}**")
-                    st.caption(f"by {book['author']}")
-                
-                with col_details:
-                    st.caption(f"Genre: {book['genre']}")
-                    st.caption(f"Year: {book['publication_year']}")
-                    st.caption(f"Pages: {book['pages']}")
-                
-                st.markdown("---")
+            st.markdown(f"""
+            <div class="book-card">
+                <h3 style="margin: 0; color: #667eea;">#{i} • {book['title']}</h3>
+                <p style="margin: 0.5rem 0; color: #666; font-size: 0.95rem;">✍️ <i>{book['author']}</i></p>
+                <div style="display: flex; gap: 1.5rem; margin-top: 1rem;">
+                    <span style="color: #764ba2; font-weight: 600;">📚 {book['genre']}</span>
+                    <span style="color: #555;">📅 {book['publication_year']}</span>
+                    <span style="color: #555;">📄 {book['pages']} pages</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
     
     with col2:
         st.subheader("User Reading History")
@@ -511,8 +579,8 @@ with tab4:
 # Footer
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; color: gray;'>
-    <p>AI-Powered Book Recommendation System | Advanced Machine Learning Project</p>
-    <p>Implemented with SVD, TF-IDF, K-means, NMF, and Hybrid Ensemble Algorithms</p>
+<div style='text-align: center; padding: 2rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; margin-top: 2rem;'>
+    <p style='color: white; font-size: 1.2rem; font-weight: 600; margin: 0;'>📚 BookWise - AI-Powered Book Recommendation System</p>
+    <p style='color: rgba(255,255,255,0.9); margin: 0.5rem 0 0 0;'>Advanced Machine Learning Project | SVD • TF-IDF • K-means • NMF • Hybrid Ensemble</p>
 </div>
 """, unsafe_allow_html=True)

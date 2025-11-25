@@ -20,6 +20,8 @@ def generate_book_data():
         'Fiction': {'avg_pages': 320, 'popularity_weight': 1.2},
         'Mystery': {'avg_pages': 280, 'popularity_weight': 1.1},
         'Romance': {'avg_pages': 350, 'popularity_weight': 1.3},
+        'Horror': {'avg_pages': 300, 'popularity_weight': 1.2},
+        'Comedy': {'avg_pages': 280, 'popularity_weight': 1.3},
         'Science Fiction': {'avg_pages': 380, 'popularity_weight': 1.0},
         'Fantasy': {'avg_pages': 420, 'popularity_weight': 1.1},
         'Biography': {'avg_pages': 290, 'popularity_weight': 0.9},
@@ -62,6 +64,18 @@ def generate_book_data():
             'My {adjective} Love', 'Hearts in {place}', 'The {noun} of Love',
             'Romance at {place}', 'The {adjective} Kiss', 'Love Beyond {noun}',
             'Forever in {place}'
+        ],
+        'Horror': [
+            'The {adjective} Nightmare', 'Curse of {place}', 'The {noun} Haunting',
+            'Terror at {place}', 'The {adjective} Shadow', 'Whispers of {noun}',
+            'The {noun} Possession', 'Darkness in {place}', 'The {adjective} Fear',
+            'Screams from {place}'
+        ],
+        'Comedy': [
+            'The {adjective} Misadventure', 'Chaos in {place}', 'The {noun} Fiasco',
+            'Laughing at {place}', 'The {adjective} Mishap', 'Jokes About {noun}',
+            'Fun in {place}', 'The {adjective} Blunder', 'Comedy of {noun}',
+            'Giggles from {place}'
         ],
         'Science Fiction': [
             'The {adjective} Galaxy', 'Beyond the {noun}', 'The {noun} Wars',
