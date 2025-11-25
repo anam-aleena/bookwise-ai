@@ -135,9 +135,10 @@ st.markdown("""
 st.markdown('<h1 class="main-header">📚 BookWise</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">AI-Powered Book Recommendation System | Advanced Machine Learning Project</p>', unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    st.markdown(f'<div class="user-badge">👤 Welcome, {st.session_state.username}!</div>', unsafe_allow_html=True)
+if st.session_state.get('username'):
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.markdown(f'<div class="user-badge">👤 Welcome, {st.session_state.username}!</div>', unsafe_allow_html=True)
 
 # Sidebar
 with st.sidebar:

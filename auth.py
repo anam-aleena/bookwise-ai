@@ -11,7 +11,7 @@ class AuthSystem:
     
     def _init_users_file(self):
         if not os.path.exists(self.users_file):
-            df = pd.DataFrame(columns=['username', 'password_hash', 'email', 'created_at'])
+            df = pd.DataFrame({'username': [], 'password_hash': [], 'email': [], 'created_at': []})
             df.to_csv(self.users_file, index=False)
     
     def _hash_password(self, password):
@@ -181,6 +181,9 @@ def render_auth_page():
 def check_authentication():
     if 'authenticated' not in st.session_state:
         st.session_state.authenticated = False
+    
+    if 'username' not in st.session_state:
+        st.session_state.username = None
     
     if not st.session_state.authenticated:
         render_auth_page()
