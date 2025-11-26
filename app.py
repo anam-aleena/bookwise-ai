@@ -10,7 +10,6 @@ from data_generator import generate_book_data
 import utils
 from auth import check_authentication, logout
 
-# Configure page
 st.set_page_config(
     page_title="BookWise - AI Book Recommendations",
     page_icon="📚",
@@ -20,7 +19,6 @@ st.set_page_config(
 
 check_authentication()
 
-# Initialize session state
 if 'rec_system' not in st.session_state:
     with st.spinner("Initializing recommendation system... This may take a moment."):
         st.session_state.rec_system = AdvancedBookRecommendationSystem()
@@ -28,186 +26,338 @@ if 'rec_system' not in st.session_state:
 if 'current_user' not in st.session_state:
     st.session_state.current_user = 1
 
-# Custom CSS for modern, attractive styling
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
     
     * {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .stApp {
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     }
     
     .main-header {
-        font-size: 3.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-size: 4rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
         margin-bottom: 0.5rem;
+        text-shadow: 0 0 30px rgba(240, 147, 251, 0.3);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+        from { filter: drop-shadow(0 0 10px rgba(240, 147, 251, 0.3)); }
+        to { filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.5)); }
     }
     
     .sub-header {
         text-align: center;
-        color: #666;
-        font-size: 1.2rem;
+        color: rgba(255,255,255,0.8);
+        font-size: 1.3rem;
         margin-bottom: 2rem;
         font-weight: 400;
+        letter-spacing: 1px;
     }
     
     .user-badge {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
+        padding: 0.7rem 1.5rem;
+        border-radius: 30px;
         font-weight: 600;
         display: inline-block;
         margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        animation: pulse 2s infinite;
     }
     
-    .metric-card {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        padding: 1.5rem;
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        margin: 0.5rem 0;
-        transition: transform 0.3s ease;
-    }
-    
-    .metric-card:hover {
-        transform: translateY(-5px);
+    @keyframes pulse {
+        0% { box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); }
+        50% { box-shadow: 0 4px 25px rgba(240, 147, 251, 0.6); }
+        100% { box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); }
     }
     
     .book-card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        margin: 1rem 0;
-        border-left: 4px solid #667eea;
-        transition: all 0.3s ease;
+        background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        backdrop-filter: blur(10px);
+        padding: 1.8rem;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        margin: 1.2rem 0;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .book-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #f093fb, #f5576c, #4facfe);
+        border-radius: 20px 20px 0 0;
     }
     
     .book-card:hover {
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
-        transform: translateX(5px);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(240, 147, 251, 0.3);
+        border-color: rgba(240, 147, 251, 0.3);
     }
     
-    .algorithm-badge {
-        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-        color: #333;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: 600;
-        display: inline-block;
+    .book-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #fff 0%, #f093fb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+    }
+    
+    .book-summary {
+        color: rgba(255,255,255,0.85);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 1rem 0;
+        padding: 1rem;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        border-left: 3px solid #f093fb;
+    }
+    
+    .book-author {
+        color: rgba(255,255,255,0.7);
+        font-size: 1rem;
+        font-style: italic;
         margin: 0.5rem 0;
     }
     
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 2rem;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        padding: 0 2rem;
-        font-weight: 600;
-        font-size: 1rem;
-    }
-    
-    div[data-testid="stMetricValue"] {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #667eea;
-    }
-    
-    .recommendation-header {
+    .read-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        margin-bottom: 1.5rem;
-        text-align: center;
+        color: white !important;
+        padding: 0.7rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        margin-top: 1rem;
     }
     
-    .stat-box {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        border-left: 4px solid #667eea;
+    .read-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+    }
+    
+    .algorithm-badge {
+        background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+        color: #1a1a2e;
+        padding: 0.7rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 700;
+        display: inline-block;
         margin: 1rem 0;
+        box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
     }
     
     .genre-tag {
         display: inline-block;
-        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-        color: #333;
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        color: #1a1a2e;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
         font-size: 0.85rem;
         font-weight: 600;
-        margin: 0.2rem;
+        margin: 0.3rem;
+        box-shadow: 0 2px 8px rgba(250, 112, 154, 0.3);
     }
     
     .rating-stars {
-        color: #ffc107;
-        font-size: 1.2rem;
+        color: #ffd700;
+        font-size: 1.3rem;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
     
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .fade-in {
-        animation: fadeIn 0.5s ease-in;
+    .stat-box {
+        background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255,255,255,0.1);
+        margin: 1rem 0;
+        color: white;
     }
     
     .insight-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         color: white;
-        padding: 1.5rem;
-        border-radius: 12px;
+        padding: 1.8rem;
+        border-radius: 20px;
         margin: 1rem 0;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .insight-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .recommendation-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .recommendation-header h2 {
+        position: relative;
+        z-index: 1;
+        font-size: 1.8rem;
+        font-weight: 700;
     }
     
     .progress-bar-container {
-        background: #e0e0e0;
+        background: rgba(255,255,255,0.2);
         border-radius: 10px;
         overflow: hidden;
-        height: 8px;
-        margin: 0.5rem 0;
+        height: 10px;
+        margin: 0.8rem 0;
     }
     
     .progress-bar {
         height: 100%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        transition: width 0.3s ease;
+        background: linear-gradient(90deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+        border-radius: 10px;
+        transition: width 0.5s ease;
+    }
+    
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 1rem;
+        background: rgba(255,255,255,0.05);
+        padding: 0.5rem;
+        border-radius: 15px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        height: 55px;
+        padding: 0 1.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: 10px;
+        color: rgba(255,255,255,0.8);
+        background: transparent;
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background: rgba(255,255,255,0.1);
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+    }
+    
+    div[data-testid="stMetricValue"] {
+        font-size: 2.2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .stSidebar {
+        background: linear-gradient(180deg, rgba(15,12,41,0.95) 0%, rgba(48,43,99,0.95) 100%);
+    }
+    
+    .stSidebar [data-testid="stHeader"] {
+        background: transparent;
+    }
+    
+    .library-card {
+        background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255,255,255,0.08);
+        margin: 0.8rem 0;
+        transition: all 0.3s ease;
+        color: white;
+    }
+    
+    .library-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(240, 147, 251, 0.2);
+        border-color: rgba(240, 147, 251, 0.3);
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    h1, h2, h3, h4, p, span, div {
+        color: white;
+    }
+    
+    .stSelectbox label, .stSlider label, .stMultiSelect label {
+        color: rgba(255,255,255,0.9) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Header
-st.markdown('<h1 class="main-header">📚 BookWise</h1>', unsafe_allow_html=True)
-st.markdown('<p class="sub-header">AI-Powered Book Recommendation System | Advanced Machine Learning Project</p>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header">BookWise</h1>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">AI-Powered Book Recommendation System | Discover Your Next Favorite Read</p>', unsafe_allow_html=True)
 
 if st.session_state.get('username'):
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.markdown(f'<div class="user-badge">👤 Welcome, {st.session_state.username}!</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="user-badge">Welcome, {st.session_state.username}!</div>', unsafe_allow_html=True)
 
-# Sidebar
 with st.sidebar:
-    st.header("🎛️ Control Panel")
+    st.markdown("### Control Panel")
     
-    if st.button("🚪 Logout", use_container_width=True):
+    if st.button("Logout", use_container_width=True):
         logout()
     
     st.markdown("---")
     
-    # User selection
-    st.subheader("👤 User Profile")
+    st.markdown("#### User Profile")
     selected_user = st.selectbox(
         "Select User ID", 
         range(1, len(st.session_state.rec_system.users_df) + 1),
@@ -215,7 +365,6 @@ with st.sidebar:
     )
     st.session_state.current_user = selected_user
     
-    # User stats
     user_ratings = len(st.session_state.rec_system.ratings_df[
         st.session_state.rec_system.ratings_df['user_id'] == selected_user
     ])
@@ -223,8 +372,7 @@ with st.sidebar:
     
     st.markdown("---")
     
-    # Algorithm selection
-    st.subheader("🧠 Algorithm Selection")
+    st.markdown("#### Algorithm Selection")
     algorithm = st.selectbox(
         "Choose Recommendation Algorithm",
         [
@@ -237,28 +385,23 @@ with st.sidebar:
         ]
     )
     
-    # Number of recommendations
     n_recommendations = st.slider("Number of Recommendations", 5, 20, 10)
     
     st.markdown("---")
     
-    # Genre filter selection
-    st.subheader("📚 Genre Preferences")
-    available_genres = ['All Genres', 'Fiction', 'Mystery', 'Romance', 'Horror', 'Comedy', 
-                       'Science Fiction', 'Fantasy', 'Biography', 'History', 'Self-Help', 
-                       'Business', 'Technology']
+    st.markdown("#### Genre Preferences")
+    available_genres = sorted(st.session_state.rec_system.books_df['genre'].unique().tolist())
     
     selected_genres = st.multiselect(
         "Filter by Genre(s)",
-        options=available_genres[1:],  # Exclude 'All Genres' from options
+        options=available_genres,
         default=[],
         help="Leave empty for all genres, or select specific genres"
     )
     
     st.markdown("---")
     
-    # System stats
-    st.subheader("📊 System Statistics")
+    st.markdown("#### System Statistics")
     st.metric("Total Books", len(st.session_state.rec_system.books_df))
     st.metric("Total Users", len(st.session_state.rec_system.users_df))
     st.metric("Total Ratings", len(st.session_state.rec_system.ratings_df))
@@ -267,16 +410,14 @@ with st.sidebar:
                 (len(st.session_state.rec_system.books_df) * len(st.session_state.rec_system.users_df))) * 100
     st.metric("Data Sparsity", f"{sparsity:.1f}%")
 
-# Main content
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["🎯 Recommendations", "📚 My Reading Journey", "📈 Analytics Dashboard", "🔬 Algorithm Details", "📊 Performance Metrics"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Recommendations", "Book Library", "My Reading Journey", "Analytics Dashboard", "Algorithm Details", "Performance Metrics"])
 
 with tab1:
-    st.markdown('<div class="recommendation-header"><h2>🎯 Your Personalized Book Recommendations</h2></div>', unsafe_allow_html=True)
+    st.markdown('<div class="recommendation-header"><h2>Your Personalized Book Recommendations</h2></div>', unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        # Get recommendations
         start_time = time.time()
         
         if algorithm == "Hybrid Ensemble (Recommended)":
@@ -304,7 +445,7 @@ with tab1:
                 st.session_state.current_user, n_recommendations
             )
             algo_name = "Cluster-Based"
-        else:  # Matrix Factorization
+        else:
             recommendations = st.session_state.rec_system.matrix_factorization_recommendations(
                 st.session_state.current_user, n_recommendations
             )
@@ -312,18 +453,14 @@ with tab1:
         
         generation_time = time.time() - start_time
         
-        # Ensure recommendations is a DataFrame
         if not isinstance(recommendations, pd.DataFrame):
             recommendations = pd.DataFrame(recommendations)
         
-        # Filter by selected genres if any are specified
         if len(selected_genres) > 0:
             recommendations = recommendations[recommendations['genre'].isin(selected_genres)]
         
-        # Display statistics badge
-        st.markdown(f'<div class="algorithm-badge">✨ {algo_name} • {generation_time:.3f}s • {len(recommendations)} books found</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="algorithm-badge">{algo_name} | {generation_time:.3f}s | {len(recommendations)} books found</div>', unsafe_allow_html=True)
         
-        # Add insights panel
         if len(recommendations) > 0:
             genres_in_recs = recommendations['genre'].value_counts()
             avg_year = int(recommendations['publication_year'].mean())
@@ -331,66 +468,77 @@ with tab1:
             
             st.markdown(f"""
             <div class="insight-card fade-in">
-                <h4 style="margin: 0 0 1rem 0;">🎯 Quick Insights</h4>
+                <h4 style="margin: 0 0 1rem 0; font-size: 1.2rem;">Quick Insights</h4>
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
                     <div>
                         <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Most Common Genre</p>
-                        <p style="margin: 0; font-size: 1.2rem; font-weight: 600;">{genres_in_recs.index[0]}</p>
+                        <p style="margin: 0; font-size: 1.3rem; font-weight: 700;">{genres_in_recs.index[0]}</p>
                     </div>
                     <div>
                         <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Avg Publication Year</p>
-                        <p style="margin: 0; font-size: 1.2rem; font-weight: 600;">{avg_year}</p>
+                        <p style="margin: 0; font-size: 1.3rem; font-weight: 700;">{avg_year}</p>
                     </div>
                     <div>
                         <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Avg Pages</p>
-                        <p style="margin: 0; font-size: 1.2rem; font-weight: 600;">{avg_pages}</p>
+                        <p style="margin: 0; font-size: 1.3rem; font-weight: 700;">{avg_pages}</p>
                     </div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
         
-        # Display recommendations with improved styling and ratings
         for i, (_, book) in enumerate(recommendations.iterrows(), 1):
-            # Generate a pseudo-rating based on book characteristics
             rating = min(5.0, 3.5 + (hash(book['title']) % 15) / 10)
-            stars = '⭐' * int(rating) + '☆' * (5 - int(rating))
+            stars = '★' * int(rating) + '☆' * (5 - int(rating))
+            
+            summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
+            read_link = book.get('read_link', 'https://www.amazon.com/s?k=' + book['title'].replace(' ', '+'))
             
             st.markdown(f"""
             <div class="book-card fade-in" style="animation-delay: {i * 0.1}s;">
                 <div style="display: flex; justify-content: space-between; align-items: start;">
                     <div style="flex: 1;">
-                        <h3 style="margin: 0; color: #667eea;">#{i} • {book['title']}</h3>
-                        <p style="margin: 0.5rem 0; color: #666; font-size: 0.95rem;">✍️ <i>{book['author']}</i></p>
+                        <div class="book-title">#{i} {book['title']}</div>
                     </div>
                     <div style="text-align: right;">
                         <div class="rating-stars">{stars}</div>
-                        <p style="margin: 0; color: #666; font-size: 0.85rem;">{rating:.1f}/5.0</p>
+                        <p style="margin: 0; color: rgba(255,255,255,0.7); font-size: 0.9rem;">{rating:.1f}/5.0</p>
                     </div>
                 </div>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
-                    <span class="genre-tag">📚 {book['genre']}</span>
-                    <span style="color: #555; display: flex; align-items: center; gap: 0.3rem;">📅 {book['publication_year']}</span>
-                    <span style="color: #555; display: flex; align-items: center; gap: 0.3rem;">📄 {book['pages']} pages</span>
+                
+                <div class="book-summary">
+                    {summary}
                 </div>
-                <div class="progress-bar-container" style="margin-top: 1rem;">
+                
+                <p class="book-author">by {book['author']}</p>
+                
+                <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center;">
+                    <span class="genre-tag">{book['genre']}</span>
+                    <span style="color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.3rem;">{book['publication_year']}</span>
+                    <span style="color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.3rem;">{book['pages']} pages</span>
+                </div>
+                
+                <div class="progress-bar-container">
                     <div class="progress-bar" style="width: {rating * 20}%;"></div>
                 </div>
+                
+                <a href="{read_link}" target="_blank" class="read-link">
+                    Read This Book
+                </a>
             </div>
             """, unsafe_allow_html=True)
         
         if len(recommendations) == 0:
-            st.warning("⚠️ No books found matching your selected genres. Try selecting different genres or 'All Genres'.")
+            st.warning("No books found matching your selected genres. Try selecting different genres or leaving the filter empty.")
     
     with col2:
-        st.subheader("📖 Your Reading History")
+        st.markdown("### Your Reading History")
         user_history = st.session_state.rec_system.get_user_reading_history(st.session_state.current_user)
         
         if not user_history.empty:
-            # Genre preference analysis
             fav_genres = user_history['genre'].value_counts().head(3)
             st.markdown(f"""
             <div class="stat-box">
-                <h4 style="margin: 0 0 0.5rem 0; color: #667eea;">📊 Your Top Genres</h4>
+                <h4 style="margin: 0 0 0.5rem 0; color: #f093fb;">Your Top Genres</h4>
                 {''.join([f'<span class="genre-tag">{genre}</span>' for genre in fav_genres.index])}
             </div>
             """, unsafe_allow_html=True)
@@ -398,56 +546,119 @@ with tab1:
             avg_rating = user_history['rating'].mean()
             st.markdown(f"""
             <div class="stat-box">
-                <h4 style="margin: 0 0 0.5rem 0; color: #667eea;">⭐ Average Rating</h4>
-                <p style="font-size: 2rem; font-weight: 700; margin: 0; color: #764ba2;">{avg_rating:.1f}/5.0</p>
-                <div class="rating-stars">{'⭐' * int(avg_rating) + '☆' * (5 - int(avg_rating))}</div>
+                <h4 style="margin: 0 0 0.5rem 0; color: #f093fb;">Average Rating</h4>
+                <p style="font-size: 2.5rem; font-weight: 700; margin: 0; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{avg_rating:.1f}/5.0</p>
+                <div class="rating-stars">{'★' * int(avg_rating) + '☆' * (5 - int(avg_rating))}</div>
             </div>
             """, unsafe_allow_html=True)
             
             st.markdown("**Recent Reads:**")
             for idx, (_, book) in enumerate(user_history.head(5).iterrows()):
                 st.markdown(f"""
-                <div style="background: #f8f9fa; padding: 0.8rem; border-radius: 8px; margin: 0.5rem 0; border-left: 3px solid #667eea;">
-                    <p style="margin: 0; font-weight: 600; color: #333;">{book['title']}</p>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.85rem; color: #666;">
-                        ⭐ {book['rating']:.1f} | 📚 {book['genre']}
+                <div class="library-card">
+                    <p style="margin: 0; font-weight: 600; color: white;">{book['title']}</p>
+                    <p style="margin: 0.3rem 0 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.7);">
+                        ★ {book['rating']:.1f} | {book['genre']}
                     </p>
                 </div>
                 """, unsafe_allow_html=True)
         else:
-            st.info("📚 No reading history yet. Start rating books to see your preferences!")
+            st.info("No reading history yet. Start rating books to see your preferences!")
 
 with tab2:
-    st.markdown('<div class="recommendation-header"><h2>📚 Your Personal Reading Journey</h2></div>', unsafe_allow_html=True)
+    st.markdown('<div class="recommendation-header"><h2>Complete Book Library</h2></div>', unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns([2, 1, 1])
+    with col1:
+        search_query = st.text_input("Search books by title or author", placeholder="Enter book title or author name...")
+    with col2:
+        library_genre_filter = st.selectbox("Filter by Genre", ["All Genres"] + available_genres)
+    with col3:
+        sort_by = st.selectbox("Sort By", ["Title (A-Z)", "Title (Z-A)", "Year (Newest)", "Year (Oldest)", "Pages (Shortest)", "Pages (Longest)"])
+    
+    all_books = st.session_state.rec_system.books_df.copy()
+    
+    if search_query:
+        all_books = all_books[
+            all_books['title'].str.lower().str.contains(search_query.lower()) |
+            all_books['author'].str.lower().str.contains(search_query.lower())
+        ]
+    
+    if library_genre_filter != "All Genres":
+        all_books = all_books[all_books['genre'] == library_genre_filter]
+    
+    if sort_by == "Title (A-Z)":
+        all_books = all_books.sort_values('title')
+    elif sort_by == "Title (Z-A)":
+        all_books = all_books.sort_values('title', ascending=False)
+    elif sort_by == "Year (Newest)":
+        all_books = all_books.sort_values('publication_year', ascending=False)
+    elif sort_by == "Year (Oldest)":
+        all_books = all_books.sort_values('publication_year')
+    elif sort_by == "Pages (Shortest)":
+        all_books = all_books.sort_values('pages')
+    elif sort_by == "Pages (Longest)":
+        all_books = all_books.sort_values('pages', ascending=False)
+    
+    st.markdown(f'<div class="algorithm-badge">Showing {len(all_books)} books</div>', unsafe_allow_html=True)
+    
+    cols = st.columns(2)
+    for idx, (_, book) in enumerate(all_books.iterrows()):
+        with cols[idx % 2]:
+            summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
+            read_link = book.get('read_link', 'https://www.amazon.com/s?k=' + book['title'].replace(' ', '+'))
+            
+            st.markdown(f"""
+            <div class="library-card">
+                <div class="book-title" style="font-size: 1.1rem;">{book['title']}</div>
+                
+                <div class="book-summary" style="font-size: 0.85rem; padding: 0.8rem;">
+                    {summary}
+                </div>
+                
+                <p class="book-author" style="font-size: 0.9rem;">by {book['author']}</p>
+                
+                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem;">
+                    <span class="genre-tag" style="font-size: 0.75rem; padding: 0.3rem 0.8rem;">{book['genre']}</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">{book['publication_year']}</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">{book['pages']} pages</span>
+                </div>
+                
+                <a href="{read_link}" target="_blank" class="read-link" style="font-size: 0.8rem; padding: 0.5rem 1rem; margin-top: 0.8rem;">
+                    Read Book
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+
+with tab3:
+    st.markdown('<div class="recommendation-header"><h2>Your Personal Reading Journey</h2></div>', unsafe_allow_html=True)
     
     user_history = st.session_state.rec_system.get_user_reading_history(st.session_state.current_user)
     
     if not user_history.empty:
-        # Reading statistics
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.metric("📚 Books Read", len(user_history), help="Total number of books you've rated")
+            st.metric("Books Read", len(user_history))
         
         with col2:
             avg_rating = user_history['rating'].mean()
-            st.metric("⭐ Avg Rating", f"{avg_rating:.1f}/5.0", help="Your average book rating")
+            st.metric("Avg Rating", f"{avg_rating:.1f}/5.0")
         
         with col3:
             total_pages = user_history['pages'].sum()
-            st.metric("📄 Total Pages", f"{total_pages:,}", help="Total pages across all rated books")
+            st.metric("Total Pages", f"{total_pages:,}")
         
         with col4:
             unique_genres = user_history['genre'].nunique()
-            st.metric("🎭 Genres Explored", unique_genres, help="Number of different genres you've read")
+            st.metric("Genres Explored", unique_genres)
         
         st.markdown("---")
         
-        # Genre breakdown
         col1, col2 = st.columns(2)
         
         with col1:
-            st.subheader("📊 Your Genre Preferences")
+            st.subheader("Your Genre Preferences")
             genre_counts = user_history['genre'].value_counts()
             fig_user_genres = px.pie(
                 values=genre_counts.values,
@@ -455,32 +666,40 @@ with tab2:
                 title="Your Reading by Genre",
                 color_discrete_sequence=px.colors.qualitative.Set3
             )
+            fig_user_genres.update_layout(
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                font_color='white'
+            )
             st.plotly_chart(fig_user_genres, use_container_width=True)
             
-            # Genre insights
             st.markdown(f"""
             <div class="insight-card">
-                <h4 style="margin: 0 0 1rem 0;">🎯 Reading Insights</h4>
-                <p style="margin: 0.5rem 0;">📚 Your most-read genre is <strong>{genre_counts.index[0]}</strong> with {genre_counts.values[0]} books</p>
-                <p style="margin: 0.5rem 0;">⭐ Your highest-rated genre is <strong>{user_history.groupby('genre')['rating'].mean().idxmax()}</strong></p>
-                <p style="margin: 0.5rem 0;">📖 You've explored <strong>{unique_genres}</strong> different genres</p>
+                <h4 style="margin: 0 0 1rem 0;">Reading Insights</h4>
+                <p style="margin: 0.5rem 0;">Your most-read genre is <strong>{genre_counts.index[0]}</strong> with {genre_counts.values[0]} books</p>
+                <p style="margin: 0.5rem 0;">Your highest-rated genre is <strong>{user_history.groupby('genre')['rating'].mean().idxmax()}</strong></p>
+                <p style="margin: 0.5rem 0;">You've explored <strong>{unique_genres}</strong> different genres</p>
             </div>
             """, unsafe_allow_html=True)
         
         with col2:
-            st.subheader("📈 Rating Patterns")
+            st.subheader("Rating Patterns")
             fig_user_ratings = px.histogram(
                 user_history,
                 x='rating',
                 nbins=10,
                 title="Your Rating Distribution",
                 labels={'rating': 'Rating', 'count': 'Number of Books'},
-                color_discrete_sequence=['#667eea']
+                color_discrete_sequence=['#f093fb']
+            )
+            fig_user_ratings.update_layout(
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                font_color='white'
             )
             st.plotly_chart(fig_user_ratings, use_container_width=True)
             
-            # Publication year analysis
-            st.subheader("📅 Publication Year Trends")
+            st.subheader("Publication Year Trends")
             year_counts = user_history.groupby('publication_year').size()
             year_df = pd.DataFrame({'publication_year': year_counts.index, 'count': year_counts.values})
             fig_years = px.line(
@@ -489,30 +708,34 @@ with tab2:
                 y='count',
                 title="Books Read by Publication Year",
                 markers=True,
-                color_discrete_sequence=['#764ba2']
+                color_discrete_sequence=['#4facfe']
+            )
+            fig_years.update_layout(
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                font_color='white'
             )
             st.plotly_chart(fig_years, use_container_width=True)
         
-        # Reading achievements
         st.markdown("---")
-        st.subheader("🏆 Your Reading Achievements")
+        st.subheader("Your Reading Achievements")
         
         achievements_col1, achievements_col2, achievements_col3 = st.columns(3)
         
         with achievements_col1:
             if len(user_history) >= 10:
                 st.markdown("""
-                <div class="stat-box" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: white;">
-                    <h3 style="margin: 0;">🏅 Bookworm</h3>
-                    <p style="margin: 0.5rem 0 0 0;">Read 10+ books!</p>
+                <div class="stat-box" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #1a1a2e;">
+                    <h3 style="margin: 0; color: #1a1a2e;">Bookworm</h3>
+                    <p style="margin: 0.5rem 0 0 0; color: #1a1a2e;">Read 10+ books!</p>
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 progress = (len(user_history) / 10) * 100
                 st.markdown(f"""
                 <div class="stat-box">
-                    <h4 style="margin: 0 0 0.5rem 0;">🏅 Bookworm</h4>
-                    <p style="margin: 0; font-size: 0.9rem;">Read 10 books to unlock</p>
+                    <h4 style="margin: 0 0 0.5rem 0;">Bookworm</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.7);">Read 10 books to unlock</p>
                     <div class="progress-bar-container">
                         <div class="progress-bar" style="width: {progress}%;"></div>
                     </div>
@@ -523,8 +746,8 @@ with tab2:
         with achievements_col2:
             if unique_genres >= 5:
                 st.markdown("""
-                <div class="stat-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                    <h3 style="margin: 0;">🌟 Genre Explorer</h3>
+                <div class="stat-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <h3 style="margin: 0;">Genre Explorer</h3>
                     <p style="margin: 0.5rem 0 0 0;">Explored 5+ genres!</p>
                 </div>
                 """, unsafe_allow_html=True)
@@ -532,8 +755,8 @@ with tab2:
                 progress = (unique_genres / 5) * 100
                 st.markdown(f"""
                 <div class="stat-box">
-                    <h4 style="margin: 0 0 0.5rem 0;">🌟 Genre Explorer</h4>
-                    <p style="margin: 0; font-size: 0.9rem;">Read from 5 genres to unlock</p>
+                    <h4 style="margin: 0 0 0.5rem 0;">Genre Explorer</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.7);">Read from 5 genres to unlock</p>
                     <div class="progress-bar-container">
                         <div class="progress-bar" style="width: {progress}%;"></div>
                     </div>
@@ -544,17 +767,17 @@ with tab2:
         with achievements_col3:
             if avg_rating >= 4.0:
                 st.markdown("""
-                <div class="stat-box" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); color: #333;">
-                    <h3 style="margin: 0;">⭐ Critic's Choice</h3>
-                    <p style="margin: 0.5rem 0 0 0;">4.0+ average rating!</p>
+                <div class="stat-box" style="background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%); color: #1a1a2e;">
+                    <h3 style="margin: 0; color: #1a1a2e;">Critic's Choice</h3>
+                    <p style="margin: 0.5rem 0 0 0; color: #1a1a2e;">4.0+ average rating!</p>
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 progress = (avg_rating / 4.0) * 100
                 st.markdown(f"""
                 <div class="stat-box">
-                    <h4 style="margin: 0 0 0.5rem 0;">⭐ Critic's Choice</h4>
-                    <p style="margin: 0; font-size: 0.9rem;">Maintain 4.0+ average to unlock</p>
+                    <h4 style="margin: 0 0 0.5rem 0;">Critic's Choice</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.7);">Maintain 4.0+ average to unlock</p>
                     <div class="progress-bar-container">
                         <div class="progress-bar" style="width: {progress}%;"></div>
                     </div>
@@ -562,10 +785,10 @@ with tab2:
                 </div>
                 """, unsafe_allow_html=True)
     else:
-        st.info("📚 Start rating books to see your personalized reading journey and achievements!")
+        st.info("Start rating books to see your personalized reading journey and achievements!")
         st.markdown("""
         <div class="insight-card">
-            <h3 style="margin: 0 0 1rem 0;">🚀 Get Started with BookWise</h3>
+            <h3 style="margin: 0 0 1rem 0;">Get Started with BookWise</h3>
             <p style="margin: 0.5rem 0;">1. Browse book recommendations in the Recommendations tab</p>
             <p style="margin: 0.5rem 0;">2. Rate books you've read to build your profile</p>
             <p style="margin: 0.5rem 0;">3. Unlock achievements as you explore different genres</p>
@@ -573,24 +796,22 @@ with tab2:
         </div>
         """, unsafe_allow_html=True)
 
-with tab3:
-    st.header("Analytics Dashboard")
+with tab4:
+    st.markdown('<div class="recommendation-header"><h2>Analytics Dashboard</h2></div>', unsafe_allow_html=True)
     
-    # Performance metrics
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.metric("System Accuracy", "91%", "↑ 4%")
+        st.metric("System Accuracy", "91%", "4%")
     with col2:
-        st.metric("Coverage", "99%", "↑ 2%")
+        st.metric("Coverage", "99%", "2%")
     with col3:
-        st.metric("Avg Response Time", "187ms", "↓ 13ms")
+        st.metric("Avg Response Time", "187ms", "-13ms")
     with col4:
-        st.metric("Active Users", "485", "↑ 15")
+        st.metric("Active Users", "485", "15")
     
     st.markdown("---")
     
-    # Charts
     col1, col2 = st.columns(2)
     
     with col1:
@@ -599,7 +820,13 @@ with tab3:
         fig_genre = px.pie(
             values=genre_counts.values,
             names=genre_counts.index,
-            title="Book Collection by Genre"
+            title="Book Collection by Genre",
+            color_discrete_sequence=px.colors.qualitative.Pastel
+        )
+        fig_genre.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font_color='white'
         )
         st.plotly_chart(fig_genre, use_container_width=True)
     
@@ -609,11 +836,16 @@ with tab3:
             st.session_state.rec_system.ratings_df,
             x='rating',
             nbins=20,
-            title="Rating Distribution Across All Users"
+            title="Rating Distribution Across All Users",
+            color_discrete_sequence=['#f093fb']
+        )
+        fig_ratings.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font_color='white'
         )
         st.plotly_chart(fig_ratings, use_container_width=True)
     
-    # Algorithm performance comparison
     st.subheader("Algorithm Performance Comparison")
     
     performance_data = {
@@ -631,28 +863,32 @@ with tab3:
     )
     
     fig_performance.add_trace(
-        go.Bar(x=performance_data['Algorithm'], y=performance_data['Accuracy'], name='Accuracy'),
+        go.Bar(x=performance_data['Algorithm'], y=performance_data['Accuracy'], name='Accuracy', marker_color='#f093fb'),
         row=1, col=1
     )
     fig_performance.add_trace(
-        go.Bar(x=performance_data['Algorithm'], y=performance_data['Coverage'], name='Coverage'),
+        go.Bar(x=performance_data['Algorithm'], y=performance_data['Coverage'], name='Coverage', marker_color='#4facfe'),
         row=1, col=2
     )
     fig_performance.add_trace(
-        go.Bar(x=performance_data['Algorithm'], y=performance_data['Response Time (ms)'], name='Response Time'),
+        go.Bar(x=performance_data['Algorithm'], y=performance_data['Response Time (ms)'], name='Response Time', marker_color='#92fe9d'),
         row=1, col=3
     )
     
-    fig_performance.update_layout(height=400, showlegend=False)
+    fig_performance.update_layout(
+        height=400, 
+        showlegend=False,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font_color='white'
+    )
     st.plotly_chart(fig_performance, use_container_width=True)
     
-    # User engagement metrics
     st.subheader("User Engagement Analytics")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        # Simulate user activity over time
         dates = pd.date_range(start='2024-01-01', end='2024-12-31', freq='D')
         np.random.seed(42)
         activity = np.random.poisson(50, len(dates)) + 30
@@ -662,10 +898,15 @@ with tab3:
             title="Daily User Activity",
             labels={'x': 'Date', 'y': 'Active Users'}
         )
+        fig_activity.update_traces(line_color='#f093fb')
+        fig_activity.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font_color='white'
+        )
         st.plotly_chart(fig_activity, use_container_width=True)
     
     with col2:
-        # User cluster analysis
         cluster_labels = st.session_state.rec_system.user_clusters
         cluster_counts = pd.Series(cluster_labels).value_counts().sort_index()
         
@@ -673,14 +914,19 @@ with tab3:
             x=cluster_counts.index,
             y=cluster_counts.values,
             title="User Clusters Distribution",
-            labels={'x': 'Cluster ID', 'y': 'Number of Users'}
+            labels={'x': 'Cluster ID', 'y': 'Number of Users'},
+            color_discrete_sequence=['#4facfe']
+        )
+        fig_clusters.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font_color='white'
         )
         st.plotly_chart(fig_clusters, use_container_width=True)
 
-with tab3:
-    st.header("Algorithm Implementation Details")
+with tab5:
+    st.markdown('<div class="recommendation-header"><h2>Algorithm Implementation Details</h2></div>', unsafe_allow_html=True)
     
-    # Algorithm descriptions
     algorithms_info = {
         "Smart Popularity": {
             "description": "Recommends books based on weighted popularity considering both rating frequency and average scores.",
@@ -745,7 +991,6 @@ with tab3:
         st.metric("Accuracy", algo_info['accuracy'])
         st.metric("Coverage", algo_info['coverage'])
     
-    # Technical implementation details
     st.markdown("---")
     st.subheader("Technical Implementation")
     
@@ -798,39 +1043,87 @@ scaled_features = scaler.fit_transform(user_features)
 kmeans = KMeans(n_clusters=5, random_state=42)
 user_clusters = kmeans.fit_predict(scaled_features)
         """, language='python')
-
-with tab4:
-    st.header("Performance Metrics & Evaluation")
     
-    # Evaluation metrics
+    elif selected_algo == "Matrix Factorization":
+        st.code("""
+# Non-negative Matrix Factorization Implementation
+from sklearn.decomposition import NMF
+
+# Apply NMF for dimensionality reduction
+nmf = NMF(n_components=50, random_state=42, max_iter=1000)
+user_factors = nmf.fit_transform(ratings_pivot.fillna(0))
+item_factors = nmf.components_.T
+
+# Compute predictions
+predictions = np.dot(user_factors, item_factors.T)
+        """, language='python')
+    
+    elif selected_algo == "Hybrid Ensemble":
+        st.code("""
+# Hybrid Ensemble Implementation
+algorithm_weights = {
+    'smart_popularity': 0.15,
+    'collaborative': 0.25,
+    'content': 0.20,
+    'cluster': 0.15,
+    'matrix_factorization': 0.25
+}
+
+# Get recommendations from each algorithm
+for algo_name, algo_func in algorithms.items():
+    recs = algo_func(user_id, n_recommendations * 2)
+    weight = algorithm_weights[algo_name]
+    
+    # Combine scores using weighted averaging
+    for book_id in recs:
+        combined_scores[book_id] += weight * score
+        """, language='python')
+    
+    else:
+        st.code("""
+# Smart Popularity Implementation
+# Calculate popularity score using rating frequency and average
+
+book_stats = ratings_df.groupby('book_id').agg({
+    'rating': ['mean', 'count']
+})
+
+# Weighted popularity score
+popularity_score = avg_rating * np.log1p(rating_count)
+
+# Sort by popularity and return top recommendations
+top_books = book_stats.sort_values('popularity_score', ascending=False)
+        """, language='python')
+
+with tab6:
+    st.markdown('<div class="recommendation-header"><h2>Performance Metrics & Evaluation</h2></div>', unsafe_allow_html=True)
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.subheader("Accuracy Metrics")
-        st.metric("Precision@10", "0.845", "↑ 0.032")
-        st.metric("Recall@10", "0.721", "↑ 0.028")
-        st.metric("F1-Score", "0.778", "↑ 0.030")
-        st.metric("NDCG@10", "0.892", "↑ 0.024")
+        st.metric("Precision@10", "0.845", "0.032")
+        st.metric("Recall@10", "0.721", "0.028")
+        st.metric("F1-Score", "0.778", "0.030")
+        st.metric("NDCG@10", "0.892", "0.024")
     
     with col2:
         st.subheader("Coverage Metrics")
-        st.metric("Catalog Coverage", "99.2%", "↑ 1.2%")
-        st.metric("User Coverage", "98.8%", "↑ 0.8%")
-        st.metric("Genre Diversity", "0.756", "↑ 0.015")
-        st.metric("Novelty Score", "0.623", "→ 0.000")
+        st.metric("Catalog Coverage", "99.2%", "1.2%")
+        st.metric("User Coverage", "98.8%", "0.8%")
+        st.metric("Genre Diversity", "0.756", "0.015")
+        st.metric("Novelty Score", "0.623", "0.000")
     
     with col3:
         st.subheader("Performance Metrics")
-        st.metric("Avg Response Time", "187ms", "↓ 13ms")
-        st.metric("Memory Usage", "45MB", "↓ 2MB")
-        st.metric("Cache Hit Rate", "78.3%", "↑ 3.1%")
-        st.metric("Throughput", "534 req/s", "↑ 12 req/s")
+        st.metric("Avg Response Time", "187ms", "-13ms")
+        st.metric("Memory Usage", "45MB", "-2MB")
+        st.metric("Cache Hit Rate", "78.3%", "3.1%")
+        st.metric("Throughput", "534 req/s", "12 req/s")
     
-    # Detailed performance analysis
     st.markdown("---")
     st.subheader("Algorithm Performance Breakdown")
     
-    # Create performance comparison chart
     metrics_df = pd.DataFrame({
         'Algorithm': ['Smart Popularity', 'Collaborative Filtering', 'Content-Based', 
                      'Cluster-Based', 'Matrix Factorization', 'Hybrid Ensemble'],
@@ -845,10 +1138,14 @@ with tab4:
         x='Algorithm', y='Score', color='Metric',
         title="Performance Metrics Comparison Across Algorithms"
     )
-    fig_metrics.update_layout(xaxis_tickangle=-45)
+    fig_metrics.update_layout(
+        xaxis_tickangle=-45,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font_color='white'
+    )
     st.plotly_chart(fig_metrics, use_container_width=True)
     
-    # Cross-validation results
     st.subheader("Cross-Validation Results")
     
     cv_results = {
@@ -866,26 +1163,36 @@ with tab4:
         fig_cv = px.box(
             cv_df.melt(id_vars=['Fold'], var_name='Metric', value_name='Score'),
             x='Metric', y='Score',
-            title="Cross-Validation Score Distribution"
+            title="Cross-Validation Score Distribution",
+            color_discrete_sequence=['#f093fb', '#4facfe', '#92fe9d']
+        )
+        fig_cv.update_layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            font_color='white'
         )
         st.plotly_chart(fig_cv, use_container_width=True)
     
     with col2:
-        st.markdown("**Cross-Validation Summary:**")
-        st.markdown(f"• **Mean Accuracy:** {np.mean(cv_results['Accuracy']):.3f} ± {np.std(cv_results['Accuracy']):.3f}")
-        st.markdown(f"• **Mean Coverage:** {np.mean(cv_results['Coverage']):.3f} ± {np.std(cv_results['Coverage']):.3f}")
-        st.markdown(f"• **Mean Diversity:** {np.mean(cv_results['Diversity']):.3f} ± {np.std(cv_results['Diversity']):.3f}")
-        
-        st.markdown("**Statistical Significance:**")
-        st.markdown("• p-value < 0.001 (highly significant)")
-        st.markdown("• 95% confidence interval achieved")
-        st.markdown("• Robust across all validation folds")
+        st.markdown("""
+        <div class="stat-box">
+            <h4 style="margin: 0 0 1rem 0; color: #f093fb;">Cross-Validation Summary</h4>
+            <p style="margin: 0.5rem 0;"><strong>Mean Accuracy:</strong> 0.900 ± 0.015</p>
+            <p style="margin: 0.5rem 0;"><strong>Mean Coverage:</strong> 0.986 ± 0.011</p>
+            <p style="margin: 0.5rem 0;"><strong>Mean Diversity:</strong> 0.752 ± 0.019</p>
+            <br>
+            <h4 style="margin: 0 0 0.5rem 0; color: #4facfe;">Statistical Significance</h4>
+            <p style="margin: 0.3rem 0;">• p-value < 0.001 (highly significant)</p>
+            <p style="margin: 0.3rem 0;">• 95% confidence interval achieved</p>
+            <p style="margin: 0.3rem 0;">• Robust across all validation folds</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-# Footer
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; padding: 2rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; margin-top: 2rem;'>
-    <p style='color: white; font-size: 1.2rem; font-weight: 600; margin: 0;'>📚 BookWise - AI-Powered Book Recommendation System</p>
-    <p style='color: rgba(255,255,255,0.9); margin: 0.5rem 0 0 0;'>Advanced Machine Learning Project | SVD • TF-IDF • K-means • NMF • Hybrid Ensemble</p>
+<div style='text-align: center; padding: 2.5rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); border-radius: 20px; margin-top: 2rem; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);'>
+    <p style='color: white; font-size: 1.5rem; font-weight: 700; margin: 0;'>BookWise - AI-Powered Book Recommendation System</p>
+    <p style='color: rgba(255,255,255,0.9); margin: 0.8rem 0 0 0; font-size: 1rem;'>Advanced Machine Learning Project | SVD | TF-IDF | K-means | NMF | Hybrid Ensemble</p>
+    <p style='color: rgba(255,255,255,0.7); margin: 0.5rem 0 0 0; font-size: 0.9rem;'>Discover Your Next Favorite Book Today</p>
 </div>
 """, unsafe_allow_html=True)
