@@ -1,5 +1,6 @@
 """
 Comprehensive book database with summaries and reading links
+Links are to Open Library, Project Gutenberg, and other free reading resources
 """
 
 BOOKS_DATABASE = {
@@ -10,7 +11,7 @@ BOOKS_DATABASE = {
         "year": 1932,
         "pages": 311,
         "summary": "A haunting vision of a future society where humans are genetically engineered and conditioned to be content with their lot. Explores themes of technology, control, and the cost of happiness in a world without pain or struggle.",
-        "read_link": "https://www.gutenberg.org/ebooks/author/3046",
+        "read_link": "https://openlibrary.org/works/OL64440W/Brave_New_World",
         "cover_color": "#1a1a2e"
     },
     2: {
@@ -20,7 +21,7 @@ BOOKS_DATABASE = {
         "year": 1954,
         "pages": 1178,
         "summary": "An epic tale of good versus evil in the magical realm of Middle-earth. Follow Frodo Baggins and his fellowship on their perilous quest to destroy the One Ring and save their world from the Dark Lord Sauron.",
-        "read_link": "https://www.amazon.com/Lord-Rings-J-R-R-Tolkien/dp/0544003411",
+        "read_link": "https://openlibrary.org/works/OL27448W/The_Lord_of_the_Rings",
         "cover_color": "#2d3436"
     },
     3: {
@@ -30,7 +31,7 @@ BOOKS_DATABASE = {
         "year": 2008,
         "pages": 305,
         "summary": "A captivating mystery about Quentin's journey to find his enigmatic neighbor Margo Roth Spiegelman after she disappears. A thoughtful exploration of identity, perception, and the danger of idealizing people.",
-        "read_link": "https://www.amazon.com/Paper-Towns-John-Green/dp/014241493X",
+        "read_link": "https://openlibrary.org/works/OL5735363W/Paper_Towns",
         "cover_color": "#00b894"
     },
     4: {
@@ -50,7 +51,7 @@ BOOKS_DATABASE = {
         "year": 2009,
         "pages": 374,
         "summary": "Thomas wakes up in a mysterious maze with no memory of his past. With a group of boys called the Gladers, he must uncover the secrets of the maze before it's too late. A thrilling adventure of survival and mystery.",
-        "read_link": "https://www.amazon.com/Maze-Runner-Book-1/dp/0385737955",
+        "read_link": "https://openlibrary.org/works/OL5735835W/The_Maze_Runner",
         "cover_color": "#636e72"
     },
     6: {
@@ -70,7 +71,7 @@ BOOKS_DATABASE = {
         "year": 1997,
         "pages": 309,
         "summary": "Orphan Harry Potter discovers he's a wizard and enters the magical world of Hogwarts School. Begin the beloved journey of friendship, magic, and the fight against dark forces that captivated millions worldwide.",
-        "read_link": "https://www.amazon.com/Harry-Potter-Sorcerers-Stone-Rowling/dp/059035342X",
+        "read_link": "https://openlibrary.org/works/OL82592W/Harry_Potter_and_the_Sorcerers_Stone",
         "cover_color": "#e17055"
     },
     8: {
@@ -80,7 +81,7 @@ BOOKS_DATABASE = {
         "year": 1985,
         "pages": 311,
         "summary": "In the totalitarian Republic of Gilead, Offred serves as a handmaid forced to bear children. A chilling portrayal of women's oppression and a powerful warning about religious extremism and authoritarian control.",
-        "read_link": "https://www.amazon.com/Handmaids-Tale-Margaret-Atwood/dp/038549081X",
+        "read_link": "https://openlibrary.org/works/OL38501W/The_Handmaids_Tale",
         "cover_color": "#d63031"
     },
     9: {
@@ -100,7 +101,7 @@ BOOKS_DATABASE = {
         "year": 2012,
         "pages": 415,
         "summary": "When Amy Dunne disappears on her fifth wedding anniversary, suspicion falls on her husband Nick. A twisted psychological thriller with unreliable narrators that will keep you guessing until the shocking end.",
-        "read_link": "https://www.amazon.com/Gone-Girl-Gillian-Flynn/dp/0307588378",
+        "read_link": "https://openlibrary.org/works/OL16149218W/Gone_Girl",
         "cover_color": "#2d3436"
     },
     11: {
@@ -110,7 +111,7 @@ BOOKS_DATABASE = {
         "year": 1953,
         "pages": 158,
         "summary": "In a future where books are banned and burned, fireman Guy Montag begins to question everything. A powerful warning about censorship, conformity, and the importance of critical thinking in society.",
-        "read_link": "https://www.amazon.com/Fahrenheit-451-Ray-Bradbury/dp/1451673310",
+        "read_link": "https://openlibrary.org/works/OL1976963W/Fahrenheit_451",
         "cover_color": "#e74c3c"
     },
     12: {
@@ -120,388 +121,388 @@ BOOKS_DATABASE = {
         "year": 1949,
         "pages": 328,
         "summary": "Winston Smith lives in a totalitarian state where Big Brother watches everything. A haunting exploration of surveillance, propaganda, and thought control that remains disturbingly relevant today.",
-        "read_link": "https://www.amazon.com/1984-Signet-Classics-George-Orwell/dp/0451524934",
+        "read_link": "https://openlibrary.org/works/OL1168083W/Nineteen_Eighty-Four",
         "cover_color": "#2c3e50"
     },
     13: {
-        "title": "The Alchemist",
-        "author": "Paulo Coelho",
-        "genre": "Fiction",
-        "year": 1988,
-        "pages": 197,
-        "summary": "Young shepherd Santiago embarks on a journey to find treasure at the Egyptian pyramids. A timeless fable about following your dreams, listening to your heart, and discovering your Personal Legend.",
-        "read_link": "https://www.amazon.com/Alchemist-Paulo-Coelho/dp/0062315005",
-        "cover_color": "#f39c12"
-    },
-    14: {
         "title": "Pride and Prejudice",
         "author": "Jane Austen",
         "genre": "Romance",
         "year": 1813,
         "pages": 279,
-        "summary": "The spirited Elizabeth Bennet clashes with the proud Mr. Darcy in Regency-era England. A witty and timeless exploration of love, class, and the dangers of making hasty judgments about others.",
+        "summary": "Elizabeth Bennet and Mr. Darcy navigate class, manners, and misconceptions in Regency England. A witty romantic masterpiece that brilliantly explores love, pride, and the art of changing one's first impressions.",
         "read_link": "https://www.gutenberg.org/ebooks/1342",
-        "cover_color": "#e84393"
+        "cover_color": "#fd79a8"
     },
-    15: {
-        "title": "An Abundance of Katherines",
-        "author": "John Green",
-        "genre": "Young Adult",
-        "year": 2006,
-        "pages": 227,
-        "summary": "Child prodigy Colin has been dumped by nineteen Katherines. On a road trip with his best friend, he sets out to prove a theorem that will predict the future of any relationship. A witty tale of love and self-discovery.",
-        "read_link": "https://www.amazon.com/Abundance-Katherines-John-Green/dp/014241070X",
-        "cover_color": "#74b9ff"
-    },
-    16: {
-        "title": "Neuromancer",
-        "author": "William Gibson",
-        "genre": "Science Fiction",
-        "year": 1984,
-        "pages": 271,
-        "summary": "Case, a washed-up computer hacker, is hired for one last job in the matrix. The groundbreaking cyberpunk novel that predicted the internet age and coined the term 'cyberspace.' Essential reading for tech enthusiasts.",
-        "read_link": "https://www.amazon.com/Neuromancer-William-Gibson/dp/0441569595",
-        "cover_color": "#00cec9"
-    },
-    17: {
-        "title": "The Brothers Karamazov",
-        "author": "Fyodor Dostoevsky",
-        "genre": "Philosophical Fiction",
-        "year": 1880,
-        "pages": 796,
-        "summary": "The story of three brothers and their father's murder explores faith, doubt, morality, and free will. Dostoevsky's final masterpiece and one of the greatest novels ever written about the human condition.",
-        "read_link": "https://www.gutenberg.org/ebooks/28054",
-        "cover_color": "#a29bfe"
-    },
-    18: {
-        "title": "The Catcher in the Rye",
-        "author": "J.D. Salinger",
-        "genre": "Fiction",
-        "year": 1951,
-        "pages": 214,
-        "summary": "Teenager Holden Caulfield recounts his experiences in New York City after being expelled from prep school. A profound exploration of teenage alienation, identity, and the painful transition to adulthood.",
-        "read_link": "https://www.amazon.com/Catcher-Rye-J-D-Salinger/dp/0316769177",
-        "cover_color": "#ff7675"
-    },
-    19: {
-        "title": "Looking for Alaska",
-        "author": "John Green",
-        "genre": "Young Adult",
-        "year": 2005,
-        "pages": 221,
-        "summary": "Miles 'Pudge' Halter leaves his ordinary life for boarding school seeking the Great Perhaps. There he meets the captivating Alaska Young and learns about love, loss, and the mystery of human connection.",
-        "read_link": "https://www.amazon.com/Looking-Alaska-John-Green/dp/0142402516",
-        "cover_color": "#55efc4"
-    },
-    20: {
-        "title": "Dune",
-        "author": "Frank Herbert",
-        "genre": "Science Fiction",
-        "year": 1965,
-        "pages": 688,
-        "summary": "Young Paul Atreides becomes embroiled in a struggle for control of the desert planet Arrakis. An epic saga of politics, religion, and ecology that redefined the science fiction genre for generations.",
-        "read_link": "https://www.amazon.com/Dune-Frank-Herbert/dp/0441172717",
-        "cover_color": "#f9ca24"
-    },
-    21: {
+    14: {
         "title": "The Hunger Games",
         "author": "Suzanne Collins",
         "genre": "Dystopian",
         "year": 2008,
         "pages": 374,
-        "summary": "In a dark future, Katniss Everdeen volunteers to fight in the deadly Hunger Games to save her sister. A gripping tale of survival, rebellion, and media manipulation in a totalitarian society.",
-        "read_link": "https://www.amazon.com/Hunger-Games-Book-1/dp/0439023521",
-        "cover_color": "#e55039"
+        "summary": "In a dystopian future, Katniss Everdeen volunteers to take her sister's place in a televised death match. A gripping tale of survival, rebellion, and the human cost of entertainment and political control.",
+        "read_link": "https://openlibrary.org/works/OL5735419W/The_Hunger_Games",
+        "cover_color": "#e74c3c"
     },
-    22: {
-        "title": "Lord of the Flies",
-        "author": "William Golding",
-        "genre": "Fiction",
-        "year": 1954,
-        "pages": 224,
-        "summary": "Boys stranded on a deserted island descend into savagery as civilization crumbles. A disturbing allegory about human nature, the thin veneer of civilization, and the darkness that lurks within us all.",
-        "read_link": "https://www.amazon.com/Lord-Flies-William-Golding/dp/0399501487",
-        "cover_color": "#636e72"
-    },
-    23: {
-        "title": "Ender's Game",
-        "author": "Orson Scott Card",
-        "genre": "Science Fiction",
-        "year": 1985,
-        "pages": 324,
-        "summary": "Child genius Ender Wiggin is recruited to Battle School to save humanity from an alien invasion. A thought-provoking tale of strategy, morality, and the weight of command that challenges our ethics.",
-        "read_link": "https://www.amazon.com/Enders-Game-Ender-Quintet-1/dp/0812550706",
-        "cover_color": "#2d3436"
-    },
-    24: {
-        "title": "The Odyssey",
-        "author": "Homer",
-        "genre": "Epic Poetry",
-        "year": -700,
-        "pages": 384,
-        "summary": "Odysseus journeys home after the Trojan War, facing monsters, gods, and temptations. The foundational adventure story of Western literature, exploring heroism, loyalty, and the longing for home.",
-        "read_link": "https://www.gutenberg.org/ebooks/1727",
-        "cover_color": "#0984e3"
-    },
-    25: {
-        "title": "Divergent",
-        "author": "Veronica Roth",
-        "genre": "Dystopian",
-        "year": 2011,
-        "pages": 487,
-        "summary": "In a divided Chicago, Tris must choose between family and identity when she discovers she's Divergent—a threat to the system. An action-packed exploration of choice, belonging, and defying expectations.",
-        "read_link": "https://www.amazon.com/Divergent-Veronica-Roth/dp/0062387243",
-        "cover_color": "#3867d6"
-    },
-    26: {
+    15: {
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "genre": "Fiction",
         "year": 1960,
         "pages": 281,
-        "summary": "Scout Finch witnesses her father defend a Black man accused of a terrible crime in 1930s Alabama. A profound exploration of racial injustice, moral courage, and the loss of innocence in the American South.",
-        "read_link": "https://www.amazon.com/Kill-Mockingbird-Harper-Lee/dp/0060935464",
-        "cover_color": "#2d3436"
+        "summary": "Scout Finch watches her father Atticus defend a Black man accused of rape in 1930s Alabama. A profound exploration of racial injustice, moral courage, and the loss of innocence that shaped American literature.",
+        "read_link": "https://openlibrary.org/works/OL4528933W/To_Kill_a_Mockingbird",
+        "cover_color": "#00cec9"
     },
-    27: {
-        "title": "The Fault in Our Stars",
-        "author": "John Green",
-        "genre": "Romance",
-        "year": 2012,
-        "pages": 313,
-        "summary": "Hazel and Augustus, two teenagers with cancer, fall in love and embark on a journey to Amsterdam. A beautiful, heart-wrenching story about love, loss, and what it means to be truly alive.",
-        "read_link": "https://www.amazon.com/Fault-Our-Stars-John-Green/dp/014242417X",
-        "cover_color": "#74b9ff"
-    },
-    28: {
-        "title": "Great Expectations",
-        "author": "Charles Dickens",
+    16: {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
         "genre": "Fiction",
-        "year": 1861,
-        "pages": 544,
-        "summary": "Orphan Pip rises from humble origins to become a gentleman, only to discover the true source of his fortune. A timeless tale of ambition, love, and redemption in Victorian England.",
-        "read_link": "https://www.gutenberg.org/ebooks/1400",
-        "cover_color": "#8e44ad"
-    },
-    29: {
-        "title": "The Iliad",
-        "author": "Homer",
-        "genre": "Epic Poetry",
-        "year": -750,
-        "pages": 683,
-        "summary": "The rage of Achilles and the siege of Troy come alive in this epic tale of war, honor, and fate. The foundational work of Western literature that shaped our understanding of heroism and tragedy.",
-        "read_link": "https://www.gutenberg.org/ebooks/2199",
-        "cover_color": "#c0392b"
-    },
-    30: {
-        "title": "The Adventures of Huckleberry Finn",
-        "author": "Mark Twain",
-        "genre": "Fiction",
-        "year": 1884,
-        "pages": 366,
-        "summary": "Huck Finn escapes civilization and floats down the Mississippi with escaped slave Jim. A rollicking adventure and sharp satire that confronts America's troubled relationship with race and freedom.",
-        "read_link": "https://www.gutenberg.org/ebooks/76",
-        "cover_color": "#27ae60"
-    },
-    31: {
-        "title": "Animal Farm",
-        "author": "George Orwell",
-        "genre": "Political Fiction",
-        "year": 1945,
-        "pages": 112,
-        "summary": "Farm animals overthrow their human master, but the pigs' revolution goes terribly wrong. A brilliant allegory about power, corruption, and how revolutionary ideals become perverted by authoritarian leaders.",
-        "read_link": "https://www.amazon.com/Animal-Farm-George-Orwell/dp/0451526341",
-        "cover_color": "#e74c3c"
-    },
-    32: {
-        "title": "The Hitchhiker's Guide to the Galaxy",
-        "author": "Douglas Adams",
-        "genre": "Science Fiction",
-        "year": 1979,
-        "pages": 193,
-        "summary": "Arthur Dent escapes Earth's destruction and hitchhikes through the galaxy with his alien friend Ford. A hilarious cosmic journey filled with absurd humor and philosophical musings about life, the universe, and everything.",
-        "read_link": "https://www.amazon.com/Hitchhikers-Guide-Galaxy-Douglas-Adams/dp/0345391802",
-        "cover_color": "#00b894"
-    },
-    33: {
-        "title": "Anna Karenina",
-        "author": "Leo Tolstoy",
-        "genre": "Fiction",
-        "year": 1877,
-        "pages": 864,
-        "summary": "Anna's passionate affair with Count Vronsky leads to tragedy in 19th century Russian society. Tolstoy's exploration of love, jealousy, and social convention remains one of literature's greatest achievements.",
-        "read_link": "https://www.gutenberg.org/ebooks/1399",
-        "cover_color": "#d63031"
-    },
-    34: {
-        "title": "The Martian",
-        "author": "Andy Weir",
-        "genre": "Science Fiction",
-        "year": 2011,
-        "pages": 369,
-        "summary": "Astronaut Mark Watney is stranded alone on Mars and must science his way to survival. A gripping, scientifically accurate tale of human ingenuity, humor, and the will to live against impossible odds.",
-        "read_link": "https://www.amazon.com/Martian-Andy-Weir/dp/0553418025",
-        "cover_color": "#e17055"
-    },
-    35: {
-        "title": "Moby Dick",
-        "author": "Herman Melville",
-        "genre": "Fiction",
-        "year": 1851,
-        "pages": 720,
-        "summary": "Captain Ahab's obsessive hunt for the white whale leads his crew to destruction. An epic exploration of obsession, fate, and humanity's struggle against nature that transcends its maritime setting.",
-        "read_link": "https://www.gutenberg.org/ebooks/2701",
-        "cover_color": "#0984e3"
-    },
-    36: {
-        "title": "Will Grayson, Will Grayson",
-        "author": "John Green & David Levithan",
-        "genre": "Young Adult",
-        "year": 2010,
-        "pages": 310,
-        "summary": "Two teens named Will Grayson meet by chance in Chicago, and their lives become intertwined. A collaborative novel about identity, friendship, and the courage to be yourself in a world of expectations.",
-        "read_link": "https://www.amazon.com/Will-Grayson-John-Green/dp/014241847X",
-        "cover_color": "#a29bfe"
-    },
-    37: {
-        "title": "Foundation",
-        "author": "Isaac Asimov",
-        "genre": "Science Fiction",
         "year": 1951,
-        "pages": 244,
-        "summary": "Mathematician Hari Seldon predicts the fall of the Galactic Empire and establishes the Foundation to preserve knowledge. A landmark of science fiction exploring the mathematics of history and civilization.",
-        "read_link": "https://www.amazon.com/Foundation-Isaac-Asimov/dp/0553293354",
-        "cover_color": "#6c5ce7"
-    },
-    38: {
-        "title": "The Hobbit",
-        "author": "J.R.R. Tolkien",
-        "genre": "Fantasy",
-        "year": 1937,
-        "pages": 310,
-        "summary": "Bilbo Baggins is swept into an adventure with thirteen dwarves to reclaim their treasure from a dragon. The beloved prelude to Lord of the Rings that introduced readers to the enchanting world of Middle-earth.",
-        "read_link": "https://www.amazon.com/Hobbit-J-R-R-Tolkien/dp/054792822X",
-        "cover_color": "#00b894"
-    },
-    39: {
-        "title": "Wuthering Heights",
-        "author": "Emily Brontë",
-        "genre": "Gothic Fiction",
-        "year": 1847,
-        "pages": 416,
-        "summary": "The passionate and destructive love between Heathcliff and Catherine haunts the moors of Yorkshire. A dark, powerful novel about obsession, revenge, and love that transcends death and social boundaries.",
-        "read_link": "https://www.gutenberg.org/ebooks/768",
-        "cover_color": "#2d3436"
-    },
-    40: {
-        "title": "Jane Eyre",
-        "author": "Charlotte Brontë",
-        "genre": "Gothic Fiction",
-        "year": 1847,
-        "pages": 532,
-        "summary": "Orphan Jane becomes governess at mysterious Thornfield Hall and falls for the enigmatic Mr. Rochester. A groundbreaking story of a woman's independence, love, and moral integrity in Victorian England.",
-        "read_link": "https://www.gutenberg.org/ebooks/1260",
-        "cover_color": "#9b59b6"
-    },
-    41: {
-        "title": "The Scarlet Letter",
-        "author": "Nathaniel Hawthorne",
-        "genre": "Historical Fiction",
-        "year": 1850,
-        "pages": 272,
-        "summary": "Hester Prynne wears a scarlet 'A' for adultery in Puritan Massachusetts while hiding her lover's identity. A powerful exploration of sin, guilt, and redemption in colonial America's harsh moral landscape.",
-        "read_link": "https://www.gutenberg.org/ebooks/25344",
-        "cover_color": "#c0392b"
-    },
-    42: {
-        "title": "The Picture of Dorian Gray",
-        "author": "Oscar Wilde",
-        "genre": "Gothic Fiction",
-        "year": 1890,
-        "pages": 254,
-        "summary": "A beautiful young man's portrait ages while he remains eternally youthful—at a terrible cost. Wilde's only novel is a dazzling exploration of beauty, corruption, and the price of eternal youth.",
-        "read_link": "https://www.gutenberg.org/ebooks/174",
-        "cover_color": "#8e44ad"
-    },
-    43: {
-        "title": "Frankenstein",
-        "author": "Mary Shelley",
-        "genre": "Gothic Fiction",
-        "year": 1818,
-        "pages": 280,
-        "summary": "Scientist Victor Frankenstein creates life, only to be haunted by his monstrous creation. The original science fiction novel that questions the ethics of creation and the nature of humanity itself.",
-        "read_link": "https://www.gutenberg.org/ebooks/84",
-        "cover_color": "#2d3436"
-    },
-    44: {
-        "title": "Dracula",
-        "author": "Bram Stoker",
-        "genre": "Horror",
-        "year": 1897,
-        "pages": 418,
-        "summary": "Jonathan Harker's encounter with Count Dracula unleashes ancient evil upon Victorian England. The definitive vampire novel that shaped our modern conception of the undead and gothic horror.",
-        "read_link": "https://www.gutenberg.org/ebooks/345",
-        "cover_color": "#c0392b"
-    },
-    45: {
-        "title": "The Shining",
-        "author": "Stephen King",
-        "genre": "Horror",
-        "year": 1977,
-        "pages": 447,
-        "summary": "The Torrance family winters at the haunted Overlook Hotel, where dark forces prey on young Danny's psychic abilities. King's masterpiece of psychological horror that explores isolation, addiction, and supernatural evil.",
-        "read_link": "https://www.amazon.com/Shining-Stephen-King/dp/0307743659",
-        "cover_color": "#e74c3c"
-    },
-    46: {
-        "title": "It",
-        "author": "Stephen King",
-        "genre": "Horror",
-        "year": 1986,
-        "pages": 1138,
-        "summary": "Seven friends confront an ancient evil that takes the form of a terrifying clown in their hometown. An epic tale of childhood fears, friendship, and the power of memory against unspeakable horror.",
-        "read_link": "https://www.amazon.com/It-Novel-Stephen-King/dp/1501142976",
+        "pages": 234,
+        "summary": "Holden Caulfield narrates his experiences in New York City after being expelled from prep school. A landmark novel capturing teenage alienation, rebellion, and the painful transition to adulthood.",
+        "read_link": "https://openlibrary.org/works/OL2136843W/The_Catcher_in_the_Rye",
         "cover_color": "#d63031"
     },
-    47: {
-        "title": "The Stand",
-        "author": "Stephen King",
-        "genre": "Horror",
-        "year": 1978,
-        "pages": 1153,
-        "summary": "After a pandemic wipes out civilization, survivors gather for a final battle between good and evil. King's epic apocalyptic novel explores the best and worst of humanity in the face of destruction.",
-        "read_link": "https://www.amazon.com/Stand-Stephen-King/dp/0307743683",
-        "cover_color": "#2d3436"
+    17: {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "genre": "Fiction",
+        "year": 1988,
+        "pages": 208,
+        "summary": "Santiago, a shepherd boy, embarks on a journey to find treasure at the Egyptian pyramids. A mystical fable about following your dreams, listening to your heart, and discovering your personal legend.",
+        "read_link": "https://openlibrary.org/works/OL8197428W/The_Alchemist",
+        "cover_color": "#fdcb6e"
     },
-    48: {
-        "title": "Ready Player One",
-        "author": "Ernest Cline",
+    18: {
+        "title": "Dune",
+        "author": "Frank Herbert",
         "genre": "Science Fiction",
-        "year": 2011,
-        "pages": 374,
-        "summary": "Wade Watts searches for an Easter egg hidden in a virtual reality world that will grant him ultimate power. A nostalgic adventure packed with 1980s pop culture references and high-stakes gaming.",
-        "read_link": "https://www.amazon.com/Ready-Player-One-Ernest-Cline/dp/0307887448",
-        "cover_color": "#6c5ce7"
+        "year": 1965,
+        "pages": 688,
+        "summary": "Paul Atreides is thrust into a world of political intrigue on the desert planet Arrakis. An epic saga of power, religion, and ecology that redefined science fiction and influenced generations of storytelling.",
+        "read_link": "https://openlibrary.org/works/OL893415W/Dune",
+        "cover_color": "#d35400"
     },
-    49: {
-        "title": "The Girl with the Dragon Tattoo",
-        "author": "Stieg Larsson",
-        "genre": "Thriller",
-        "year": 2005,
-        "pages": 465,
-        "summary": "Journalist Mikael Blomkvist and hacker Lisbeth Salander investigate a decades-old disappearance. A gripping thriller exposing dark secrets of wealth and power in Swedish society.",
-        "read_link": "https://www.amazon.com/Girl-Dragon-Tattoo-Millennium/dp/0307454541",
-        "cover_color": "#2d3436"
-    },
-    50: {
+    19: {
         "title": "The Da Vinci Code",
         "author": "Dan Brown",
         "genre": "Thriller",
         "year": 2003,
         "pages": 454,
-        "summary": "Robert Langdon races to solve a murder in the Louvre that leads to secrets hidden by Leonardo da Vinci. A controversial thriller blending art history, religious conspiracy, and non-stop action.",
-        "read_link": "https://www.amazon.com/Vinci-Code-Dan-Brown/dp/0307474275",
+        "summary": "Robert Langdon unravels a murder mystery in the Louvre that leads to secrets hidden for centuries. A fast-paced thriller combining art history, religious mysteries, and code-breaking that captivated millions.",
+        "read_link": "https://openlibrary.org/works/OL45883W/The_Da_Vinci_Code",
+        "cover_color": "#8e44ad"
+    },
+    20: {
+        "title": "The Shining",
+        "author": "Stephen King",
+        "genre": "Horror",
+        "year": 1977,
+        "pages": 447,
+        "summary": "Jack Torrance takes a job as winter caretaker at the isolated Overlook Hotel with his family. A terrifying descent into madness as supernatural forces exploit Jack's demons and threaten his young son Danny.",
+        "read_link": "https://openlibrary.org/works/OL81634W/The_Shining",
+        "cover_color": "#2d3436"
+    },
+    21: {
+        "title": "Jane Eyre",
+        "author": "Charlotte Bronte",
+        "genre": "Romance",
+        "year": 1847,
+        "pages": 500,
+        "summary": "Orphaned Jane becomes governess at Thornfield Hall and falls for the mysterious Mr. Rochester. A groundbreaking novel of female independence, moral integrity, and passionate love that defied Victorian conventions.",
+        "read_link": "https://www.gutenberg.org/ebooks/1260",
+        "cover_color": "#6c5ce7"
+    },
+    22: {
+        "title": "Dracula",
+        "author": "Bram Stoker",
+        "genre": "Horror",
+        "year": 1897,
+        "pages": 418,
+        "summary": "Jonathan Harker's visit to Count Dracula's castle in Transylvania unleashes ancient evil on England. The definitive vampire novel that created modern horror and still chills readers over a century later.",
+        "read_link": "https://www.gutenberg.org/ebooks/345",
+        "cover_color": "#c0392b"
+    },
+    23: {
+        "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "genre": "Horror",
+        "year": 1818,
+        "pages": 280,
+        "summary": "Victor Frankenstein creates life but abandons his creation, leading to tragic consequences. A profound meditation on scientific responsibility, loneliness, and what it means to be human that birthed science fiction.",
+        "read_link": "https://www.gutenberg.org/ebooks/84",
+        "cover_color": "#27ae60"
+    },
+    24: {
+        "title": "Wuthering Heights",
+        "author": "Emily Bronte",
+        "genre": "Romance",
+        "year": 1847,
+        "pages": 416,
+        "summary": "The passionate and destructive love between Heathcliff and Catherine haunts the Yorkshire moors. A dark, intense tale of obsession, revenge, and love that transcends death, defying romantic conventions.",
+        "read_link": "https://www.gutenberg.org/ebooks/768",
+        "cover_color": "#8e44ad"
+    },
+    25: {
+        "title": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "genre": "Fiction",
+        "year": 1890,
+        "pages": 254,
+        "summary": "Dorian Gray remains eternally young while his portrait ages and shows his sins. Wilde's only novel is a witty, dark exploration of beauty, corruption, and the price of pursuing pleasure without consequence.",
+        "read_link": "https://www.gutenberg.org/ebooks/174",
         "cover_color": "#9b59b6"
+    },
+    26: {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "genre": "Fiction",
+        "year": 1851,
+        "pages": 635,
+        "summary": "Captain Ahab obsessively hunts the white whale that took his leg across the world's oceans. An ambitious epic exploring obsession, nature, fate, and the limits of human understanding that redefined American literature.",
+        "read_link": "https://www.gutenberg.org/ebooks/2701",
+        "cover_color": "#3498db"
+    },
+    27: {
+        "title": "The Adventures of Sherlock Holmes",
+        "author": "Arthur Conan Doyle",
+        "genre": "Mystery",
+        "year": 1892,
+        "pages": 307,
+        "summary": "Follow the brilliant detective Sherlock Holmes and Dr. Watson through twelve captivating cases. The definitive collection that established Holmes as literature's greatest detective and mystery fiction's gold standard.",
+        "read_link": "https://www.gutenberg.org/ebooks/1661",
+        "cover_color": "#2c3e50"
+    },
+    28: {
+        "title": "The Count of Monte Cristo",
+        "author": "Alexandre Dumas",
+        "genre": "Adventure",
+        "year": 1844,
+        "pages": 1276,
+        "summary": "Edmond Dantes, wrongly imprisoned, escapes and reinvents himself to exact revenge on those who betrayed him. An unforgettable tale of vengeance, justice, and redemption that remains the ultimate adventure classic.",
+        "read_link": "https://www.gutenberg.org/ebooks/1184",
+        "cover_color": "#2980b9"
+    },
+    29: {
+        "title": "A Tale of Two Cities",
+        "author": "Charles Dickens",
+        "genre": "Historical Fiction",
+        "year": 1859,
+        "pages": 448,
+        "summary": "London and Paris during the French Revolution form the backdrop for this tale of sacrifice and resurrection. Dickens weaves love, loyalty, and redemption through one of history's most turbulent periods.",
+        "read_link": "https://www.gutenberg.org/ebooks/98",
+        "cover_color": "#e74c3c"
+    },
+    30: {
+        "title": "Great Expectations",
+        "author": "Charles Dickens",
+        "genre": "Fiction",
+        "year": 1861,
+        "pages": 544,
+        "summary": "Orphan Pip's life changes when a mysterious benefactor funds his rise to gentleman status. A masterful coming-of-age story exploring class, ambition, and the true meaning of wealth and gentility.",
+        "read_link": "https://www.gutenberg.org/ebooks/1400",
+        "cover_color": "#795548"
+    },
+    31: {
+        "title": "The Odyssey",
+        "author": "Homer",
+        "genre": "Fiction",
+        "year": -800,
+        "pages": 374,
+        "summary": "Odysseus struggles to return home after the Trojan War, facing monsters, gods, and temptations. The foundational adventure story that has influenced literature for nearly three thousand years.",
+        "read_link": "https://www.gutenberg.org/ebooks/1727",
+        "cover_color": "#16a085"
+    },
+    32: {
+        "title": "The Iliad",
+        "author": "Homer",
+        "genre": "Fiction",
+        "year": -750,
+        "pages": 704,
+        "summary": "The Greek siege of Troy comes alive through the wrath of Achilles and the heroes' struggle. The epic poem that defined Western literature and shaped our understanding of war, honor, and mortality.",
+        "read_link": "https://www.gutenberg.org/ebooks/6130",
+        "cover_color": "#c0392b"
+    },
+    33: {
+        "title": "Don Quixote",
+        "author": "Miguel de Cervantes",
+        "genre": "Fiction",
+        "year": 1605,
+        "pages": 1056,
+        "summary": "An aging gentleman believes he's a knight and sets out on absurd adventures with his squire Sancho Panza. The first modern novel, a hilarious and touching exploration of idealism, reality, and the power of stories.",
+        "read_link": "https://www.gutenberg.org/ebooks/996",
+        "cover_color": "#d35400"
+    },
+    34: {
+        "title": "Les Miserables",
+        "author": "Victor Hugo",
+        "genre": "Historical Fiction",
+        "year": 1862,
+        "pages": 1463,
+        "summary": "Jean Valjean's journey from convict to saint in 19th century France, pursued by the relentless Javert. An epic of redemption, justice, and revolution that captures the full range of human experience.",
+        "read_link": "https://www.gutenberg.org/ebooks/135",
+        "cover_color": "#2c3e50"
+    },
+    35: {
+        "title": "Anna Karenina",
+        "author": "Leo Tolstoy",
+        "genre": "Romance",
+        "year": 1877,
+        "pages": 864,
+        "summary": "Anna's passionate affair with Count Vronsky unravels her marriage and her life in Tsarist Russia. Tolstoy's exploration of love, family, and society remains one of literature's greatest achievements.",
+        "read_link": "https://www.gutenberg.org/ebooks/1399",
+        "cover_color": "#e91e63"
+    },
+    36: {
+        "title": "The Brothers Karamazov",
+        "author": "Fyodor Dostoevsky",
+        "genre": "Psychological Fiction",
+        "year": 1880,
+        "pages": 796,
+        "summary": "Three brothers grapple with faith, morality, and patricide in this profound philosophical novel. Dostoevsky's masterpiece explores the eternal questions of God, freedom, and the nature of evil.",
+        "read_link": "https://www.gutenberg.org/ebooks/28054",
+        "cover_color": "#6c5ce7"
+    },
+    37: {
+        "title": "The Scarlet Letter",
+        "author": "Nathaniel Hawthorne",
+        "genre": "Fiction",
+        "year": 1850,
+        "pages": 272,
+        "summary": "Hester Prynne wears the mark of adultery in Puritan Boston while hiding her lover's identity. A powerful exploration of sin, guilt, and redemption that questions rigid moral codes and social punishment.",
+        "read_link": "https://www.gutenberg.org/ebooks/25344",
+        "cover_color": "#e74c3c"
+    },
+    38: {
+        "title": "The Divine Comedy",
+        "author": "Dante Alighieri",
+        "genre": "Poetry",
+        "year": 1320,
+        "pages": 798,
+        "summary": "Dante journeys through Hell, Purgatory, and Paradise guided by Virgil and Beatrice. The supreme achievement of medieval literature, blending theology, philosophy, and poetry into an unforgettable vision.",
+        "read_link": "https://www.gutenberg.org/ebooks/8800",
+        "cover_color": "#9b59b6"
+    },
+    39: {
+        "title": "The Grapes of Wrath",
+        "author": "John Steinbeck",
+        "genre": "Fiction",
+        "year": 1939,
+        "pages": 464,
+        "summary": "The Joad family flees the Oklahoma Dust Bowl seeking a better life in California. Steinbeck's Pulitzer Prize winner is a devastating portrait of poverty, dignity, and the American Dream's failure.",
+        "read_link": "https://openlibrary.org/works/OL23205W/The_Grapes_of_Wrath",
+        "cover_color": "#d35400"
+    },
+    40: {
+        "title": "Of Mice and Men",
+        "author": "John Steinbeck",
+        "genre": "Fiction",
+        "year": 1937,
+        "pages": 107,
+        "summary": "George and Lennie, two displaced migrant workers, dream of owning their own land. A heartbreaking novella about friendship, dreams, and the cruelty of circumstance during the Great Depression.",
+        "read_link": "https://openlibrary.org/works/OL23206W/Of_Mice_and_Men",
+        "cover_color": "#795548"
+    },
+    41: {
+        "title": "Lord of the Flies",
+        "author": "William Golding",
+        "genre": "Fiction",
+        "year": 1954,
+        "pages": 224,
+        "summary": "British schoolboys stranded on an island descend into savagery without adult supervision. A disturbing allegory about civilization's fragility and the darkness lurking within human nature.",
+        "read_link": "https://openlibrary.org/works/OL901651W/Lord_of_the_Flies",
+        "cover_color": "#27ae60"
+    },
+    42: {
+        "title": "One Hundred Years of Solitude",
+        "author": "Gabriel Garcia Marquez",
+        "genre": "Fiction",
+        "year": 1967,
+        "pages": 417,
+        "summary": "Seven generations of the Buendia family in the mythical town of Macondo live, love, and die. The masterpiece of magical realism blends history, fantasy, and family saga into an unforgettable tapestry.",
+        "read_link": "https://openlibrary.org/works/OL10477W/Cien_años_de_soledad",
+        "cover_color": "#f1c40f"
+    },
+    43: {
+        "title": "Catch-22",
+        "author": "Joseph Heller",
+        "genre": "Fiction",
+        "year": 1961,
+        "pages": 453,
+        "summary": "Bombardier Yossarian tries to survive World War II's absurdity while trapped by a maddening rule. A darkly comic satire of war, bureaucracy, and the insanity of trying to stay sane in an insane world.",
+        "read_link": "https://openlibrary.org/works/OL276640W/Catch-22",
+        "cover_color": "#2980b9"
+    },
+    44: {
+        "title": "Slaughterhouse-Five",
+        "author": "Kurt Vonnegut",
+        "genre": "Science Fiction",
+        "year": 1969,
+        "pages": 275,
+        "summary": "Billy Pilgrim becomes unstuck in time, experiencing moments of his life randomly, including the Dresden bombing. A revolutionary anti-war novel blending science fiction with devastating memoir.",
+        "read_link": "https://openlibrary.org/works/OL98474W/Slaughterhouse-Five",
+        "cover_color": "#00bcd4"
+    },
+    45: {
+        "title": "The Bell Jar",
+        "author": "Sylvia Plath",
+        "genre": "Fiction",
+        "year": 1963,
+        "pages": 288,
+        "summary": "Esther Greenwood's descent into depression during a New York summer internship. Plath's only novel is a haunting, semi-autobiographical exploration of mental illness, identity, and women's limited choices.",
+        "read_link": "https://openlibrary.org/works/OL1124933W/The_Bell_Jar",
+        "cover_color": "#9c27b0"
+    },
+    46: {
+        "title": "The Stranger",
+        "author": "Albert Camus",
+        "genre": "Philosophical Fiction",
+        "year": 1942,
+        "pages": 123,
+        "summary": "Meursault commits a senseless murder and faces trial more for his emotional detachment than his crime. A landmark existentialist novel exploring absurdity, alienation, and society's need for conventional feelings.",
+        "read_link": "https://openlibrary.org/works/OL15084628W/The_Stranger",
+        "cover_color": "#607d8b"
+    },
+    47: {
+        "title": "The Metamorphosis",
+        "author": "Franz Kafka",
+        "genre": "Fiction",
+        "year": 1915,
+        "pages": 201,
+        "summary": "Gregor Samsa wakes one morning to find himself transformed into a giant insect. Kafka's masterpiece of alienation explores family, identity, and the horror of becoming unbearable to those who should love us.",
+        "read_link": "https://www.gutenberg.org/ebooks/5200",
+        "cover_color": "#795548"
+    },
+    48: {
+        "title": "Heart of Darkness",
+        "author": "Joseph Conrad",
+        "genre": "Fiction",
+        "year": 1899,
+        "pages": 96,
+        "summary": "Marlow journeys up the Congo River to find the mysterious Kurtz, confronting colonialism's horror. A profound meditation on imperialism, morality, and the darkness within civilization itself.",
+        "read_link": "https://www.gutenberg.org/ebooks/219",
+        "cover_color": "#2c3e50"
+    },
+    49: {
+        "title": "Beloved",
+        "author": "Toni Morrison",
+        "genre": "Fiction",
+        "year": 1987,
+        "pages": 324,
+        "summary": "Former slave Sethe is haunted by the ghost of her dead daughter in post-Civil War Ohio. Morrison's Pulitzer Prize winner confronts slavery's psychological trauma with devastating power and beauty.",
+        "read_link": "https://openlibrary.org/works/OL14935827W/Beloved",
+        "cover_color": "#8e44ad"
+    },
+    50: {
+        "title": "The Color Purple",
+        "author": "Alice Walker",
+        "genre": "Fiction",
+        "year": 1982,
+        "pages": 295,
+        "summary": "Celie survives abuse and finds her voice through letters to God and her sister in rural Georgia. A powerful, uplifting novel of Black women's resilience, sisterhood, and the journey to self-discovery.",
+        "read_link": "https://openlibrary.org/works/OL1870605W/The_Color_Purple",
+        "cover_color": "#9c27b0"
     },
     51: {
         "title": "The Kite Runner",
@@ -509,515 +510,514 @@ BOOKS_DATABASE = {
         "genre": "Fiction",
         "year": 2003,
         "pages": 371,
-        "summary": "Amir returns to Taliban-controlled Afghanistan to rescue his childhood friend's son. A powerful story of guilt, redemption, and the bonds of friendship against the backdrop of a troubled nation.",
-        "read_link": "https://www.amazon.com/Kite-Runner-Khaled-Hosseini/dp/159463193X",
-        "cover_color": "#e17055"
+        "summary": "Amir returns to Taliban-controlled Afghanistan to rescue the son of his childhood friend Hassan. A moving story of guilt, redemption, and the lasting impact of choices made in childhood.",
+        "read_link": "https://openlibrary.org/works/OL5808534W/The_Kite_Runner",
+        "cover_color": "#f44336"
     },
     52: {
-        "title": "A Thousand Splendid Suns",
-        "author": "Khaled Hosseini",
-        "genre": "Fiction",
-        "year": 2007,
-        "pages": 372,
-        "summary": "Two Afghan women from different generations find strength in their bond amid decades of war. An epic tale of love, sacrifice, and hope that illuminates the resilience of women in Afghanistan.",
-        "read_link": "https://www.amazon.com/Thousand-Splendid-Suns-Khaled-Hosseini/dp/159448385X",
-        "cover_color": "#fdcb6e"
-    },
-    53: {
         "title": "Life of Pi",
         "author": "Yann Martel",
         "genre": "Fiction",
         "year": 2001,
         "pages": 319,
-        "summary": "After a shipwreck, Pi Patel survives 227 days on a lifeboat with a Bengal tiger. An imaginative tale of survival, faith, and storytelling that questions the nature of truth and belief.",
-        "read_link": "https://www.amazon.com/Life-Pi-Yann-Martel/dp/0156027321",
-        "cover_color": "#0984e3"
+        "summary": "Pi Patel survives 227 days in a lifeboat with a Bengal tiger after a shipwreck. A captivating adventure that explores faith, storytelling, and the nature of truth through an extraordinary survival tale.",
+        "read_link": "https://openlibrary.org/works/OL24211W/Life_of_Pi",
+        "cover_color": "#03a9f4"
     },
-    54: {
+    53: {
         "title": "The Book Thief",
         "author": "Markus Zusak",
         "genre": "Historical Fiction",
         "year": 2005,
         "pages": 552,
-        "summary": "Narrated by Death, this is the story of Liesel, a girl who steals books in Nazi Germany. A haunting and beautiful meditation on the power of words and stories in the darkest of times.",
-        "read_link": "https://www.amazon.com/Book-Thief-Markus-Zusak/dp/0375842209",
-        "cover_color": "#636e72"
+        "summary": "Death narrates the story of Liesel, a girl who steals books in Nazi Germany. A unique, heartbreaking tale of words, love, and survival during history's darkest chapter.",
+        "read_link": "https://openlibrary.org/works/OL5808602W/The_Book_Thief",
+        "cover_color": "#424242"
+    },
+    54: {
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "genre": "Dystopian",
+        "year": 1962,
+        "pages": 192,
+        "summary": "Alex leads his gang through ultraviolence until the state tries to cure him of free will. A disturbing exploration of choice, morality, and whether forced goodness has any value at all.",
+        "read_link": "https://openlibrary.org/works/OL1517270W/A_Clockwork_Orange",
+        "cover_color": "#ff5722"
     },
     55: {
-        "title": "The Help",
-        "author": "Kathryn Stockett",
-        "genre": "Fiction",
-        "year": 2009,
-        "pages": 451,
-        "summary": "Black maids and a young white woman collaborate on a book exposing the truth of their lives in 1960s Mississippi. A moving story of courage, friendship, and finding your voice in the segregated South.",
-        "read_link": "https://www.amazon.com/Help-Kathryn-Stockett/dp/0425232204",
-        "cover_color": "#e84393"
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "genre": "Post-Apocalyptic",
+        "year": 2006,
+        "pages": 287,
+        "summary": "A father and son push a shopping cart through a devastated America, seeking survival. McCarthy's Pulitzer winner is a harrowing yet tender exploration of love and hope in a world without hope.",
+        "read_link": "https://openlibrary.org/works/OL3270556W/The_Road",
+        "cover_color": "#616161"
     },
     56: {
-        "title": "The Secret Garden",
-        "author": "Frances Hodgson Burnett",
-        "genre": "Fiction",
-        "year": 1911,
-        "pages": 331,
-        "summary": "Orphan Mary discovers a hidden garden at her uncle's mansion and works to restore it to beauty. A timeless story of healing, friendship, and the transformative power of nature and love.",
-        "read_link": "https://www.gutenberg.org/ebooks/113",
-        "cover_color": "#00b894"
+        "title": "Blood Meridian",
+        "author": "Cormac McCarthy",
+        "genre": "Western",
+        "year": 1985,
+        "pages": 351,
+        "summary": "The Kid joins a gang of scalp hunters in the brutal American-Mexican borderlands of the 1850s. McCarthy's masterpiece of violence explores war, evil, and humanity's darkest nature in unflinching prose.",
+        "read_link": "https://openlibrary.org/works/OL3270545W/Blood_Meridian",
+        "cover_color": "#b71c1c"
     },
     57: {
-        "title": "Little Women",
-        "author": "Louisa May Alcott",
-        "genre": "Fiction",
-        "year": 1868,
-        "pages": 449,
-        "summary": "The four March sisters—Meg, Jo, Beth, and Amy—navigate growing up during the Civil War era. A beloved classic celebrating sisterhood, individuality, and the dreams of young women.",
-        "read_link": "https://www.gutenberg.org/ebooks/514",
-        "cover_color": "#e84393"
+        "title": "No Country for Old Men",
+        "author": "Cormac McCarthy",
+        "genre": "Thriller",
+        "year": 2005,
+        "pages": 309,
+        "summary": "Llewelyn Moss finds drug money and triggers a chase with unstoppable killer Anton Chigurh. A taut thriller meditating on fate, violence, and a world where old values no longer apply.",
+        "read_link": "https://openlibrary.org/works/OL3270555W/No_Country_for_Old_Men",
+        "cover_color": "#263238"
     },
     58: {
-        "title": "A Tale of Two Cities",
-        "author": "Charles Dickens",
-        "genre": "Historical Fiction",
-        "year": 1859,
-        "pages": 489,
-        "summary": "Love and sacrifice intertwine against the backdrop of the French Revolution in London and Paris. Dickens' tale of resurrection and redemption opens with literature's most famous first line.",
-        "read_link": "https://www.gutenberg.org/ebooks/98",
-        "cover_color": "#d63031"
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "year": 1937,
+        "pages": 310,
+        "summary": "Bilbo Baggins leaves the Shire for an unexpected adventure with dwarves seeking dragon treasure. The beloved prelude to Lord of the Rings that launched modern fantasy literature.",
+        "read_link": "https://openlibrary.org/works/OL262758W/The_Hobbit",
+        "cover_color": "#4caf50"
     },
     59: {
-        "title": "Oliver Twist",
-        "author": "Charles Dickens",
-        "genre": "Fiction",
-        "year": 1838,
-        "pages": 608,
-        "summary": "Orphan Oliver escapes the workhouse only to fall in with a gang of pickpockets in Victorian London. Dickens' social critique exposes the cruel treatment of the poor while telling an unforgettable story.",
-        "read_link": "https://www.gutenberg.org/ebooks/730",
-        "cover_color": "#2d3436"
+        "title": "The Chronicles of Narnia",
+        "author": "C.S. Lewis",
+        "genre": "Fantasy",
+        "year": 1950,
+        "pages": 767,
+        "summary": "Four children discover a magical land through a wardrobe and help the lion Aslan defeat evil. Lewis's beloved series blends adventure, allegory, and wonder into timeless children's fantasy.",
+        "read_link": "https://openlibrary.org/works/OL45430W/The_Lion_the_Witch_and_the_Wardrobe",
+        "cover_color": "#2196f3"
     },
     60: {
-        "title": "David Copperfield",
-        "author": "Charles Dickens",
-        "genre": "Fiction",
-        "year": 1850,
-        "pages": 882,
-        "summary": "The autobiographical tale of David's journey from abused orphan to successful writer. Dickens' favorite among his novels, filled with memorable characters and Victorian social commentary.",
-        "read_link": "https://www.gutenberg.org/ebooks/766",
-        "cover_color": "#8e44ad"
+        "title": "Ender's Game",
+        "author": "Orson Scott Card",
+        "genre": "Science Fiction",
+        "year": 1985,
+        "pages": 324,
+        "summary": "Child genius Ender Wiggin is trained in Battle School to fight an alien threat to humanity. A gripping tale of strategy, leadership, and the moral costs of warfare that transcends its genre.",
+        "read_link": "https://openlibrary.org/works/OL49575W/Ender_s_Game",
+        "cover_color": "#00bcd4"
     },
     61: {
-        "title": "The Adventures of Sherlock Holmes",
-        "author": "Arthur Conan Doyle",
-        "genre": "Mystery",
-        "year": 1892,
-        "pages": 307,
-        "summary": "The world's greatest detective solves seemingly impossible cases from 221B Baker Street. Twelve brilliant short stories featuring the legendary Holmes and his faithful companion Dr. Watson.",
-        "read_link": "https://www.gutenberg.org/ebooks/1661",
-        "cover_color": "#2d3436"
+        "title": "The Hitchhiker's Guide to the Galaxy",
+        "author": "Douglas Adams",
+        "genre": "Science Fiction",
+        "year": 1979,
+        "pages": 193,
+        "summary": "Arthur Dent escapes Earth's destruction and hitchhikes through the galaxy with his alien friend. A hilarious cosmic adventure that answers why the number 42 is so important.",
+        "read_link": "https://openlibrary.org/works/OL2163721W/The_Hitchhikers_Guide_to_the_Galaxy",
+        "cover_color": "#009688"
     },
     62: {
-        "title": "The Hound of the Baskervilles",
-        "author": "Arthur Conan Doyle",
-        "genre": "Mystery",
-        "year": 1902,
-        "pages": 256,
-        "summary": "Sherlock Holmes investigates a supernatural hound haunting the Baskerville family on the misty moors. The most famous Holmes novel combines gothic atmosphere with brilliant deductive reasoning.",
-        "read_link": "https://www.gutenberg.org/ebooks/2852",
-        "cover_color": "#636e72"
+        "title": "Foundation",
+        "author": "Isaac Asimov",
+        "genre": "Science Fiction",
+        "year": 1951,
+        "pages": 244,
+        "summary": "Mathematician Hari Seldon predicts the fall of the Galactic Empire and creates a plan to shorten the dark age. Asimov's epic explores the power of science and knowledge to shape civilization's future.",
+        "read_link": "https://openlibrary.org/works/OL46125W/Foundation",
+        "cover_color": "#673ab7"
     },
     63: {
-        "title": "Murder on the Orient Express",
-        "author": "Agatha Christie",
-        "genre": "Mystery",
-        "year": 1934,
-        "pages": 256,
-        "summary": "Detective Hercule Poirot investigates a murder on a snowbound train with twelve suspects. Christie's most famous mystery features one of literature's most surprising and ingenious solutions.",
-        "read_link": "https://www.amazon.com/Murder-Orient-Express-Hercule-Mysteries/dp/0062693662",
-        "cover_color": "#6c5ce7"
+        "title": "Neuromancer",
+        "author": "William Gibson",
+        "genre": "Science Fiction",
+        "year": 1984,
+        "pages": 271,
+        "summary": "Washed-up hacker Case gets one last chance at the computer networks that are his life. The novel that defined cyberpunk and predicted our digital future with uncanny prescience.",
+        "read_link": "https://openlibrary.org/works/OL27258W/Neuromancer",
+        "cover_color": "#00e676"
     },
     64: {
-        "title": "And Then There Were None",
-        "author": "Agatha Christie",
-        "genre": "Mystery",
-        "year": 1939,
-        "pages": 272,
-        "summary": "Ten strangers are lured to an island where they begin dying one by one according to a nursery rhyme. Christie's bestselling novel is a masterpiece of suspense and misdirection.",
-        "read_link": "https://www.amazon.com/Then-There-Were-None/dp/0062073486",
-        "cover_color": "#2d3436"
+        "title": "Snow Crash",
+        "author": "Neal Stephenson",
+        "genre": "Science Fiction",
+        "year": 1992,
+        "pages": 440,
+        "summary": "Hiro Protagonist, pizza deliverer and hacker, investigates a new drug that crashes both computers and minds. A wild ride through virtual reality and linguistics that foresaw the metaverse.",
+        "read_link": "https://openlibrary.org/works/OL81620W/Snow_Crash",
+        "cover_color": "#00bcd4"
     },
     65: {
-        "title": "Rebecca",
-        "author": "Daphne du Maurier",
-        "genre": "Gothic Fiction",
-        "year": 1938,
-        "pages": 380,
-        "summary": "A young bride arrives at Manderley only to be haunted by her husband's glamorous first wife. A masterful gothic romance exploring jealousy, identity, and the power of memory.",
-        "read_link": "https://www.amazon.com/Rebecca-Daphne-du-Maurier/dp/0380730405",
-        "cover_color": "#9b59b6"
+        "title": "The Martian",
+        "author": "Andy Weir",
+        "genre": "Science Fiction",
+        "year": 2011,
+        "pages": 369,
+        "summary": "Astronaut Mark Watney is stranded alone on Mars and must science his way to survival. A gripping, scientifically accurate survival story with humor, ingenuity, and unstoppable human determination.",
+        "read_link": "https://openlibrary.org/works/OL17091818W/The_Martian",
+        "cover_color": "#ff5722"
     },
     66: {
-        "title": "The Count of Monte Cristo",
-        "author": "Alexandre Dumas",
-        "genre": "Adventure",
-        "year": 1844,
-        "pages": 1276,
-        "summary": "Wrongly imprisoned Edmond Dantès escapes and enacts elaborate revenge on those who betrayed him. The ultimate tale of revenge and redemption, filled with adventure, romance, and intrigue.",
-        "read_link": "https://www.gutenberg.org/ebooks/1184",
-        "cover_color": "#f39c12"
+        "title": "Ready Player One",
+        "author": "Ernest Cline",
+        "genre": "Science Fiction",
+        "year": 2011,
+        "pages": 374,
+        "summary": "In 2045, Wade Watts hunts for a hidden Easter egg in a virtual reality universe that could make him rich. A nostalgic adventure through 1980s pop culture and gaming that celebrates geek culture.",
+        "read_link": "https://openlibrary.org/works/OL15832628W/Ready_Player_One",
+        "cover_color": "#e91e63"
     },
     67: {
-        "title": "The Three Musketeers",
-        "author": "Alexandre Dumas",
-        "genre": "Adventure",
-        "year": 1844,
-        "pages": 625,
-        "summary": "Young D'Artagnan joins the legendary musketeers in swashbuckling adventures in 17th century France. All for one and one for all—the quintessential adventure novel of friendship and honor.",
-        "read_link": "https://www.gutenberg.org/ebooks/1257",
-        "cover_color": "#0984e3"
+        "title": "It",
+        "author": "Stephen King",
+        "genre": "Horror",
+        "year": 1986,
+        "pages": 1138,
+        "summary": "Seven friends reunite to fight the evil entity that haunted their childhood in Derry, Maine. King's epic horror novel explores the power of memory, friendship, and facing our deepest fears.",
+        "read_link": "https://openlibrary.org/works/OL81613W/It",
+        "cover_color": "#f44336"
     },
     68: {
-        "title": "Treasure Island",
-        "author": "Robert Louis Stevenson",
-        "genre": "Adventure",
-        "year": 1883,
-        "pages": 292,
-        "summary": "Young Jim Hawkins discovers a treasure map and embarks on a perilous voyage with pirates. The classic adventure story that defined the pirate genre with unforgettable characters like Long John Silver.",
-        "read_link": "https://www.gutenberg.org/ebooks/120",
-        "cover_color": "#00b894"
+        "title": "Pet Sematary",
+        "author": "Stephen King",
+        "genre": "Horror",
+        "year": 1983,
+        "pages": 374,
+        "summary": "A family discovers a burial ground that brings the dead back to life, but not as they were. King's most terrifying novel explores grief, death, and the terrible price of defying nature's laws.",
+        "read_link": "https://openlibrary.org/works/OL81623W/Pet_Sematary",
+        "cover_color": "#424242"
     },
     69: {
-        "title": "The Call of the Wild",
-        "author": "Jack London",
-        "genre": "Adventure",
-        "year": 1903,
-        "pages": 128,
-        "summary": "A domesticated dog is stolen and thrust into the brutal Yukon gold rush as a sled dog. A powerful tale of survival and the primal instincts that lie dormant within all creatures.",
-        "read_link": "https://www.gutenberg.org/ebooks/215",
-        "cover_color": "#2d3436"
+        "title": "The Stand",
+        "author": "Stephen King",
+        "genre": "Post-Apocalyptic",
+        "year": 1978,
+        "pages": 1153,
+        "summary": "A deadly plague wipes out most of humanity, and survivors must choose between good and evil. King's epic masterpiece of apocalyptic fiction explores the eternal battle for humanity's soul.",
+        "read_link": "https://openlibrary.org/works/OL81632W/The_Stand",
+        "cover_color": "#2c3e50"
     },
     70: {
-        "title": "White Fang",
-        "author": "Jack London",
-        "genre": "Adventure",
-        "year": 1906,
-        "pages": 298,
-        "summary": "A wild wolf-dog's journey from the wilderness to civilization in the frozen Yukon. London's companion piece to The Call of the Wild explores the transformative power of love and kindness.",
-        "read_link": "https://www.gutenberg.org/ebooks/910",
-        "cover_color": "#dfe6e9"
+        "title": "American Gods",
+        "author": "Neil Gaiman",
+        "genre": "Fantasy",
+        "year": 2001,
+        "pages": 465,
+        "summary": "Shadow Moon joins the mysterious Mr. Wednesday on a road trip across America's mythological landscape. Gaiman's epic blends Norse mythology with American folklore in a battle of old and new gods.",
+        "read_link": "https://openlibrary.org/works/OL679907W/American_Gods",
+        "cover_color": "#3f51b5"
     },
     71: {
-        "title": "The Jungle Book",
-        "author": "Rudyard Kipling",
-        "genre": "Adventure",
-        "year": 1894,
-        "pages": 277,
-        "summary": "Mowgli, a boy raised by wolves in the Indian jungle, learns the law of the jungle from animal friends. Timeless tales of adventure, friendship, and belonging that enchant readers of all ages.",
-        "read_link": "https://www.gutenberg.org/ebooks/236",
-        "cover_color": "#27ae60"
+        "title": "Good Omens",
+        "author": "Neil Gaiman & Terry Pratchett",
+        "genre": "Fantasy",
+        "year": 1990,
+        "pages": 400,
+        "summary": "An angel and demon team up to prevent the apocalypse because they've grown fond of Earth. A hilarious, warm-hearted comedy about friendship, free will, and the end of the world.",
+        "read_link": "https://openlibrary.org/works/OL453532W/Good_Omens",
+        "cover_color": "#ffc107"
     },
     72: {
-        "title": "Around the World in Eighty Days",
-        "author": "Jules Verne",
-        "genre": "Adventure",
-        "year": 1872,
-        "pages": 312,
-        "summary": "Phileas Fogg wagers he can circumnavigate the globe in just eighty days. Verne's thrilling race against time combines adventure, humor, and a celebration of human ingenuity.",
-        "read_link": "https://www.gutenberg.org/ebooks/103",
-        "cover_color": "#3498db"
+        "title": "The Name of the Wind",
+        "author": "Patrick Rothfuss",
+        "genre": "Fantasy",
+        "year": 2007,
+        "pages": 662,
+        "summary": "Kvothe, a legendary figure, tells his own story from orphan to hero to broken innkeeper. A beautifully written fantasy about the power of stories, music, and the making of myths.",
+        "read_link": "https://openlibrary.org/works/OL5719218W/The_Name_of_the_Wind",
+        "cover_color": "#ff9800"
     },
     73: {
-        "title": "Twenty Thousand Leagues Under the Sea",
-        "author": "Jules Verne",
-        "genre": "Science Fiction",
-        "year": 1870,
-        "pages": 437,
-        "summary": "Captain Nemo commands the submarine Nautilus on an underwater voyage of wonder and mystery. Verne's visionary adventure predicted modern submarines while exploring the depths of the ocean.",
-        "read_link": "https://www.gutenberg.org/ebooks/164",
-        "cover_color": "#0984e3"
+        "title": "The Way of Kings",
+        "author": "Brandon Sanderson",
+        "genre": "Fantasy",
+        "year": 2010,
+        "pages": 1007,
+        "summary": "On a world of storms and strange magic, heroes emerge to face an ancient evil returning. Sanderson's epic begins a massive fantasy series with intricate magic systems and complex characters.",
+        "read_link": "https://openlibrary.org/works/OL15358691W/The_Way_of_Kings",
+        "cover_color": "#2196f3"
     },
     74: {
-        "title": "Journey to the Center of the Earth",
-        "author": "Jules Verne",
-        "genre": "Science Fiction",
-        "year": 1864,
-        "pages": 183,
-        "summary": "Professor Lidenbrock leads an expedition into an Icelandic volcano to the Earth's core. Verne's imaginative adventure combines geological speculation with fantastic subterranean discoveries.",
-        "read_link": "https://www.gutenberg.org/ebooks/18857",
-        "cover_color": "#e74c3c"
+        "title": "A Game of Thrones",
+        "author": "George R.R. Martin",
+        "genre": "Fantasy",
+        "year": 1996,
+        "pages": 694,
+        "summary": "Noble families vie for the Iron Throne while an ancient threat stirs in the frozen north. Martin's epic fantasy redefined the genre with its moral complexity, political intrigue, and shocking twists.",
+        "read_link": "https://openlibrary.org/works/OL7963020W/A_Game_of_Thrones",
+        "cover_color": "#b71c1c"
     },
     75: {
-        "title": "The Time Machine",
-        "author": "H.G. Wells",
-        "genre": "Science Fiction",
-        "year": 1895,
-        "pages": 118,
-        "summary": "A scientist travels to the year 802,701 and discovers humanity's disturbing evolution. Wells' pioneering science fiction novel explores class division and the ultimate fate of civilization.",
-        "read_link": "https://www.gutenberg.org/ebooks/35",
-        "cover_color": "#6c5ce7"
+        "title": "The Night Circus",
+        "author": "Erin Morgenstern",
+        "genre": "Fantasy",
+        "year": 2011,
+        "pages": 387,
+        "summary": "Two young magicians are bound in a competition using a mysterious black and white circus as their arena. A dreamy, romantic fantasy with enchanting prose and unforgettable atmosphere.",
+        "read_link": "https://openlibrary.org/works/OL15851917W/The_Night_Circus",
+        "cover_color": "#212121"
     },
     76: {
-        "title": "The War of the Worlds",
-        "author": "H.G. Wells",
-        "genre": "Science Fiction",
-        "year": 1898,
-        "pages": 192,
-        "summary": "Martians invade Victorian England with terrifying war machines and heat-rays. The original alien invasion story that established templates for countless science fiction tales to follow.",
-        "read_link": "https://www.gutenberg.org/ebooks/36",
-        "cover_color": "#d63031"
+        "title": "The Girl with the Dragon Tattoo",
+        "author": "Stieg Larsson",
+        "genre": "Thriller",
+        "year": 2005,
+        "pages": 465,
+        "summary": "Journalist Mikael Blomkvist and hacker Lisbeth Salander investigate a decades-old disappearance. A gripping Swedish thriller combining mystery, family secrets, and unforgettable characters.",
+        "read_link": "https://openlibrary.org/works/OL8987490W/The_Girl_with_the_Dragon_Tattoo",
+        "cover_color": "#455a64"
     },
     77: {
-        "title": "The Invisible Man",
-        "author": "H.G. Wells",
-        "genre": "Science Fiction",
-        "year": 1897,
-        "pages": 161,
-        "summary": "A scientist discovers the secret of invisibility but cannot reverse it, descending into madness. Wells explores the corrupting nature of power and the isolation of the misunderstood genius.",
-        "read_link": "https://www.gutenberg.org/ebooks/5230",
-        "cover_color": "#2d3436"
+        "title": "The Girl on the Train",
+        "author": "Paula Hawkins",
+        "genre": "Thriller",
+        "year": 2015,
+        "pages": 323,
+        "summary": "Rachel watches a perfect couple from her train window until she sees something that changes everything. A twisty psychological thriller about obsession, memory, and the lies we tell ourselves.",
+        "read_link": "https://openlibrary.org/works/OL17355818W/The_Girl_on_the_Train",
+        "cover_color": "#37474f"
     },
     78: {
-        "title": "Slaughterhouse-Five",
-        "author": "Kurt Vonnegut",
-        "genre": "Science Fiction",
-        "year": 1969,
-        "pages": 275,
-        "summary": "Billy Pilgrim becomes 'unstuck in time' after surviving the Dresden bombing and alien abduction. Vonnegut's anti-war masterpiece blends science fiction with profound meditation on trauma and fate.",
-        "read_link": "https://www.amazon.com/Slaughterhouse-Five-Novel-Modern-Library-Novels/dp/0385333846",
-        "cover_color": "#74b9ff"
+        "title": "Big Little Lies",
+        "author": "Liane Moriarty",
+        "genre": "Thriller",
+        "year": 2014,
+        "pages": 460,
+        "summary": "Three mothers' lives intersect at a school trivia night that ends in death. A darkly funny mystery about the secrets behind perfect suburban facades and the violence they can hide.",
+        "read_link": "https://openlibrary.org/works/OL17096316W/Big_Little_Lies",
+        "cover_color": "#e91e63"
     },
     79: {
-        "title": "Cat's Cradle",
-        "author": "Kurt Vonnegut",
-        "genre": "Science Fiction",
-        "year": 1963,
-        "pages": 287,
-        "summary": "A writer researching the atomic bomb discovers a substance that could freeze all water on Earth. Vonnegut's darkly comic satire explores science, religion, and humanity's capacity for self-destruction.",
-        "read_link": "https://www.amazon.com/Cats-Cradle-Novel-Kurt-Vonnegut/dp/038533348X",
-        "cover_color": "#00cec9"
+        "title": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "genre": "Thriller",
+        "year": 2019,
+        "pages": 325,
+        "summary": "Alicia Berenson shot her husband and hasn't spoken since. Therapist Theo Faber is determined to uncover why. A twisted psychological thriller with a shocking ending you won't see coming.",
+        "read_link": "https://openlibrary.org/works/OL19990629W/The_Silent_Patient",
+        "cover_color": "#263238"
     },
     80: {
-        "title": "Catch-22",
-        "author": "Joseph Heller",
-        "genre": "Satire",
-        "year": 1961,
-        "pages": 453,
-        "summary": "Bombardier Yossarian tries to escape military service during World War II through the absurd Catch-22. Heller's classic anti-war satire coined a term and captured the insanity of bureaucracy.",
-        "read_link": "https://www.amazon.com/Catch-22-50th-Anniversary-Joseph-Heller/dp/1451626657",
-        "cover_color": "#fdcb6e"
+        "title": "Where the Crawdads Sing",
+        "author": "Delia Owens",
+        "genre": "Fiction",
+        "year": 2018,
+        "pages": 368,
+        "summary": "Kya, the 'Marsh Girl,' grows up alone in the North Carolina wetlands and becomes a murder suspect. A beautiful blend of mystery, coming-of-age, and nature writing that captivated millions.",
+        "read_link": "https://openlibrary.org/works/OL19715036W/Where_the_Crawdads_Sing",
+        "cover_color": "#4caf50"
     },
     81: {
-        "title": "Beloved",
-        "author": "Toni Morrison",
-        "genre": "Fiction",
-        "year": 1987,
-        "pages": 324,
-        "summary": "Escaped slave Sethe is haunted by the ghost of her dead daughter in post-Civil War Ohio. Morrison's Pulitzer Prize winner explores the devastating psychological legacy of slavery with poetic power.",
-        "read_link": "https://www.amazon.com/Beloved-Toni-Morrison/dp/1400033411",
-        "cover_color": "#636e72"
+        "title": "Educated",
+        "author": "Tara Westover",
+        "genre": "Memoir",
+        "year": 2018,
+        "pages": 334,
+        "summary": "Tara grows up in a survivalist family in Idaho with no formal education until she teaches herself to attend college. A remarkable memoir of self-invention and escaping a violent, isolated upbringing.",
+        "read_link": "https://openlibrary.org/works/OL17896882W/Educated",
+        "cover_color": "#795548"
     },
     82: {
-        "title": "Song of Solomon",
-        "author": "Toni Morrison",
-        "genre": "Fiction",
-        "year": 1977,
-        "pages": 337,
-        "summary": "Milkman Dead searches for a family treasure that leads him to discover his roots and identity. Morrison's lyrical novel weaves African American folklore with a young man's journey to selfhood.",
-        "read_link": "https://www.amazon.com/Song-Solomon-Toni-Morrison/dp/140003342X",
-        "cover_color": "#a29bfe"
+        "title": "Becoming",
+        "author": "Michelle Obama",
+        "genre": "Memoir",
+        "year": 2018,
+        "pages": 426,
+        "summary": "Michelle Obama shares her journey from Chicago's South Side to the White House and beyond. An intimate, powerful memoir of identity, love, and using your voice to make a difference.",
+        "read_link": "https://openlibrary.org/works/OL19743310W/Becoming",
+        "cover_color": "#9c27b0"
     },
     83: {
-        "title": "The Color Purple",
-        "author": "Alice Walker",
-        "genre": "Fiction",
-        "year": 1982,
-        "pages": 295,
-        "summary": "Celie's letters reveal her transformation from abuse victim to self-empowered woman in the rural South. Walker's Pulitzer Prize winner celebrates the strength and resilience of Black women.",
-        "read_link": "https://www.amazon.com/Color-Purple-Novel-Alice-Walker/dp/0156028352",
-        "cover_color": "#9b59b6"
+        "title": "Sapiens",
+        "author": "Yuval Noah Harari",
+        "genre": "Non-Fiction",
+        "year": 2011,
+        "pages": 443,
+        "summary": "A sweeping history of humankind from the Stone Age to the present and into the future. Harari explores how Homo sapiens came to dominate the planet through cognitive, agricultural, and scientific revolutions.",
+        "read_link": "https://openlibrary.org/works/OL17082907W/Sapiens",
+        "cover_color": "#ff9800"
     },
     84: {
-        "title": "Their Eyes Were Watching God",
-        "author": "Zora Neale Hurston",
-        "genre": "Fiction",
-        "year": 1937,
-        "pages": 219,
-        "summary": "Janie Crawford's three marriages become a journey toward self-discovery and true love. A lyrical masterpiece of the Harlem Renaissance exploring Black female identity and independence.",
-        "read_link": "https://www.amazon.com/Their-Eyes-Were-Watching-God/dp/0061120065",
-        "cover_color": "#00b894"
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "genre": "Non-Fiction",
+        "year": 2011,
+        "pages": 499,
+        "summary": "Nobel laureate Kahneman reveals the two systems that drive how we think and make decisions. A groundbreaking exploration of intuition, rationality, and the biases that shape our choices.",
+        "read_link": "https://openlibrary.org/works/OL16235475W/Thinking_Fast_and_Slow",
+        "cover_color": "#607d8b"
     },
     85: {
-        "title": "Invisible Man",
-        "author": "Ralph Ellison",
-        "genre": "Fiction",
-        "year": 1952,
-        "pages": 581,
-        "summary": "An unnamed Black narrator describes his journey from the South to Harlem, invisible in American society. A landmark novel exploring race, identity, and the African American experience.",
-        "read_link": "https://www.amazon.com/Invisible-Man-Ralph-Ellison/dp/0679732764",
-        "cover_color": "#2d3436"
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "genre": "Self-Help",
+        "year": 2018,
+        "pages": 320,
+        "summary": "Small changes can lead to remarkable results when you understand how habits work. A practical guide to breaking bad habits and building good ones through tiny adjustments that compound over time.",
+        "read_link": "https://openlibrary.org/works/OL19743417W/Atomic_Habits",
+        "cover_color": "#ffeb3b"
     },
     86: {
-        "title": "Native Son",
-        "author": "Richard Wright",
-        "genre": "Fiction",
-        "year": 1940,
-        "pages": 504,
-        "summary": "Bigger Thomas's desperate crime in 1930s Chicago exposes the devastating effects of racism. Wright's unflinching novel shocked America and changed the conversation about race in literature.",
-        "read_link": "https://www.amazon.com/Native-Son-Perennial-Classics-Richard/dp/0060837569",
-        "cover_color": "#e74c3c"
+        "title": "The Power of Now",
+        "author": "Eckhart Tolle",
+        "genre": "Self-Help",
+        "year": 1997,
+        "pages": 236,
+        "summary": "A guide to spiritual enlightenment through living in the present moment. Tolle shares how to quiet the mind, find inner peace, and discover the transformative power of now.",
+        "read_link": "https://openlibrary.org/works/OL3337154W/The_Power_of_Now",
+        "cover_color": "#00bcd4"
     },
     87: {
-        "title": "The Sun Also Rises",
-        "author": "Ernest Hemingway",
-        "genre": "Fiction",
-        "year": 1926,
-        "pages": 251,
-        "summary": "Disillusioned Americans and British expatriates drink and travel through 1920s Paris and Spain. Hemingway's debut novel captures the Lost Generation's search for meaning after World War I.",
-        "read_link": "https://www.amazon.com/Sun-Also-Rises-Ernest-Hemingway/dp/0743297334",
-        "cover_color": "#f39c12"
+        "title": "The Subtle Art of Not Giving a F*ck",
+        "author": "Mark Manson",
+        "genre": "Self-Help",
+        "year": 2016,
+        "pages": 212,
+        "summary": "A counterintuitive approach to living a good life by caring about less but caring about what matters. Manson delivers brutal honesty about values, responsibility, and what makes us happy.",
+        "read_link": "https://openlibrary.org/works/OL17602755W/The_Subtle_Art_of_Not_Giving_a_Fck",
+        "cover_color": "#ff5722"
     },
     88: {
-        "title": "A Farewell to Arms",
-        "author": "Ernest Hemingway",
-        "genre": "Fiction",
-        "year": 1929,
-        "pages": 332,
-        "summary": "An American ambulance driver falls in love with a British nurse during World War I in Italy. Hemingway's semi-autobiographical novel combines war's brutality with tender, doomed romance.",
-        "read_link": "https://www.amazon.com/Farewell-Arms-Ernest-Hemingway/dp/0684801469",
-        "cover_color": "#636e72"
+        "title": "The 7 Habits of Highly Effective People",
+        "author": "Stephen R. Covey",
+        "genre": "Self-Help",
+        "year": 1989,
+        "pages": 381,
+        "summary": "Covey's principles for personal effectiveness focus on character, not personality. A timeless framework for productivity, leadership, and living with integrity that has influenced millions.",
+        "read_link": "https://openlibrary.org/works/OL2741276W/The_7_Habits_of_Highly_Effective_People",
+        "cover_color": "#4caf50"
     },
     89: {
-        "title": "The Old Man and the Sea",
-        "author": "Ernest Hemingway",
-        "genre": "Fiction",
-        "year": 1952,
-        "pages": 127,
-        "summary": "An aging Cuban fisherman battles a giant marlin in the Gulf Stream for three days. Hemingway's Pulitzer Prize winner is a profound meditation on perseverance, dignity, and human spirit.",
-        "read_link": "https://www.amazon.com/Old-Man-Sea-Ernest-Hemingway/dp/0684801221",
-        "cover_color": "#0984e3"
+        "title": "Rich Dad Poor Dad",
+        "author": "Robert T. Kiyosaki",
+        "genre": "Finance",
+        "year": 1997,
+        "pages": 207,
+        "summary": "Lessons from two fathers teach the difference between working for money and having money work for you. A paradigm-shifting book about financial literacy, investing, and building wealth.",
+        "read_link": "https://openlibrary.org/works/OL1909016W/Rich_Dad_Poor_Dad",
+        "cover_color": "#9c27b0"
     },
     90: {
-        "title": "For Whom the Bell Tolls",
-        "author": "Ernest Hemingway",
-        "genre": "Fiction",
-        "year": 1940,
-        "pages": 471,
-        "summary": "An American dynamiter joins Spanish guerrillas to blow up a bridge during the Civil War. Hemingway's epic tale of war, love, and sacrifice unfolds over three intense days in the mountains.",
-        "read_link": "https://www.amazon.com/Whom-Bell-Tolls-Ernest-Hemingway/dp/0684803356",
-        "cover_color": "#c0392b"
+        "title": "The Intelligent Investor",
+        "author": "Benjamin Graham",
+        "genre": "Finance",
+        "year": 1949,
+        "pages": 640,
+        "summary": "The definitive book on value investing, endorsed by Warren Buffett as the best investing book ever written. Graham's timeless wisdom on market psychology and intelligent investing strategy.",
+        "read_link": "https://openlibrary.org/works/OL1168039W/The_Intelligent_Investor",
+        "cover_color": "#1976d2"
     },
     91: {
-        "title": "One Flew Over the Cuckoo's Nest",
-        "author": "Ken Kesey",
-        "genre": "Fiction",
-        "year": 1962,
-        "pages": 325,
-        "summary": "Randle McMurphy fakes insanity to serve his prison sentence in a mental hospital, challenging Nurse Ratched. A powerful allegory about conformity, rebellion, and the nature of sanity itself.",
-        "read_link": "https://www.amazon.com/Flew-Over-Cuckoos-Nest-Novel/dp/0451163966",
-        "cover_color": "#3498db"
+        "title": "The Lean Startup",
+        "author": "Eric Ries",
+        "genre": "Business",
+        "year": 2011,
+        "pages": 336,
+        "summary": "A methodology for developing businesses and products through validated learning and rapid experimentation. Ries revolutionized how startups and corporations approach innovation and product development.",
+        "read_link": "https://openlibrary.org/works/OL16098125W/The_Lean_Startup",
+        "cover_color": "#4caf50"
     },
     92: {
-        "title": "On the Road",
-        "author": "Jack Kerouac",
-        "genre": "Fiction",
-        "year": 1957,
-        "pages": 307,
-        "summary": "Sal Paradise chronicles his wild road trips across America with the magnetic Dean Moriarty. The defining novel of the Beat Generation captures the restless quest for meaning and freedom.",
-        "read_link": "https://www.amazon.com/Road-Original-Scroll-Penguin-Classics/dp/0143105469",
-        "cover_color": "#f9ca24"
+        "title": "Zero to One",
+        "author": "Peter Thiel",
+        "genre": "Business",
+        "year": 2014,
+        "pages": 195,
+        "summary": "PayPal co-founder Thiel shares contrarian thoughts on startups and building the future. A provocative guide to creating something truly new instead of copying what already exists.",
+        "read_link": "https://openlibrary.org/works/OL17099099W/Zero_to_One",
+        "cover_color": "#3f51b5"
     },
     93: {
-        "title": "The Grapes of Wrath",
-        "author": "John Steinbeck",
-        "genre": "Fiction",
-        "year": 1939,
-        "pages": 464,
-        "summary": "The Joad family flees Oklahoma's Dust Bowl for California's promised land. Steinbeck's Pulitzer Prize winner is a searing portrait of American poverty and resilience during the Great Depression.",
-        "read_link": "https://www.amazon.com/Grapes-Wrath-John-Steinbeck/dp/0143039431",
-        "cover_color": "#e17055"
+        "title": "Steve Jobs",
+        "author": "Walter Isaacson",
+        "genre": "Biography",
+        "year": 2011,
+        "pages": 656,
+        "summary": "The authorized biography of Apple's legendary co-founder, based on extensive interviews. An intimate portrait of the visionary, perfectionist, and difficult genius who transformed multiple industries.",
+        "read_link": "https://openlibrary.org/works/OL16149988W/Steve_Jobs",
+        "cover_color": "#212121"
     },
     94: {
-        "title": "Of Mice and Men",
-        "author": "John Steinbeck",
-        "genre": "Fiction",
-        "year": 1937,
-        "pages": 107,
-        "summary": "Two migrant workers, George and gentle giant Lennie, dream of owning their own farm. A heartbreaking novella about friendship, dreams, and the harsh realities faced by society's outcasts.",
-        "read_link": "https://www.amazon.com/Mice-Men-John-Steinbeck/dp/0140186425",
-        "cover_color": "#636e72"
+        "title": "The Diary of a Young Girl",
+        "author": "Anne Frank",
+        "genre": "Memoir",
+        "year": 1947,
+        "pages": 283,
+        "summary": "Anne Frank's diary chronicles two years hiding from Nazis in Amsterdam. A powerful, intimate record of adolescence and hope amidst the Holocaust that has touched millions worldwide.",
+        "read_link": "https://openlibrary.org/works/OL13663869W/The_Diary_of_a_Young_Girl",
+        "cover_color": "#795548"
     },
     95: {
-        "title": "East of Eden",
-        "author": "John Steinbeck",
-        "genre": "Fiction",
-        "year": 1952,
-        "pages": 601,
-        "summary": "Two families' intertwined stories in California's Salinas Valley retell the Cain and Abel narrative. Steinbeck considered this his masterpiece—an epic exploration of good, evil, and free will.",
-        "read_link": "https://www.amazon.com/East-Eden-John-Steinbeck/dp/0140186395",
-        "cover_color": "#27ae60"
+        "title": "Man's Search for Meaning",
+        "author": "Viktor E. Frankl",
+        "genre": "Psychology",
+        "year": 1946,
+        "pages": 184,
+        "summary": "Psychiatrist Frankl finds meaning in suffering during the Holocaust and develops logotherapy. A profound meditation on finding purpose that has guided millions through life's darkest moments.",
+        "read_link": "https://openlibrary.org/works/OL613282W/Mans_Search_for_Meaning",
+        "cover_color": "#607d8b"
     },
     96: {
-        "title": "Lolita",
-        "author": "Vladimir Nabokov",
-        "genre": "Fiction",
-        "year": 1955,
-        "pages": 336,
-        "summary": "Humbert Humbert's disturbing obsession with young Dolores Haze, whom he calls Lolita. A controversial masterpiece of prose that explores the darkest corners of obsession and delusion.",
-        "read_link": "https://www.amazon.com/Lolita-Vladimir-Nabokov/dp/0679723161",
-        "cover_color": "#e84393"
+        "title": "The Art of War",
+        "author": "Sun Tzu",
+        "genre": "Philosophy",
+        "year": -500,
+        "pages": 68,
+        "summary": "Ancient Chinese military strategy that has influenced warfare, business, and competition for millennia. Sun Tzu's wisdom on strategy, leadership, and winning without fighting remains eternally relevant.",
+        "read_link": "https://www.gutenberg.org/ebooks/132",
+        "cover_color": "#b71c1c"
     },
     97: {
-        "title": "Pale Fire",
-        "author": "Vladimir Nabokov",
-        "genre": "Fiction",
-        "year": 1962,
-        "pages": 315,
-        "summary": "A poem and its bizarre commentary reveal a story of madness, exile, and possible assassination. Nabokov's innovative novel plays with narrative structure in dazzling, unexpected ways.",
-        "read_link": "https://www.amazon.com/Pale-Fire-Vladimir-Nabokov/dp/0679723420",
-        "cover_color": "#dfe6e9"
+        "title": "Meditations",
+        "author": "Marcus Aurelius",
+        "genre": "Philosophy",
+        "year": 180,
+        "pages": 254,
+        "summary": "The Roman Emperor's private reflections on Stoic philosophy and the good life. Timeless wisdom on resilience, virtue, and finding peace that has guided leaders for two thousand years.",
+        "read_link": "https://www.gutenberg.org/ebooks/2680",
+        "cover_color": "#546e7a"
     },
     98: {
-        "title": "Midnight's Children",
-        "author": "Salman Rushdie",
-        "genre": "Fiction",
-        "year": 1981,
-        "pages": 533,
-        "summary": "Children born at India's independence have magical powers in this Booker Prize winner. Rushdie's dazzling novel weaves personal and national history into magical realist epic.",
-        "read_link": "https://www.amazon.com/Midnights-Children-Modern-Library-Novels/dp/0812976533",
-        "cover_color": "#f39c12"
+        "title": "Thus Spoke Zarathustra",
+        "author": "Friedrich Nietzsche",
+        "genre": "Philosophy",
+        "year": 1883,
+        "pages": 352,
+        "summary": "Nietzsche's philosophical novel introduces the Ubermensch and the death of God through the prophet Zarathustra. A challenging, poetic exploration of morality, meaning, and human potential.",
+        "read_link": "https://www.gutenberg.org/ebooks/1998",
+        "cover_color": "#5c6bc0"
     },
     99: {
-        "title": "One Hundred Years of Solitude",
-        "author": "Gabriel García Márquez",
-        "genre": "Fiction",
-        "year": 1967,
-        "pages": 417,
-        "summary": "Seven generations of the Buendía family live in the mythical town of Macondo. García Márquez's masterpiece of magical realism explores love, war, and the cyclical nature of history.",
-        "read_link": "https://www.amazon.com/Hundred-Solitude-Harper-Perennial-Classics/dp/0060883286",
-        "cover_color": "#00b894"
+        "title": "The Republic",
+        "author": "Plato",
+        "genre": "Philosophy",
+        "year": -375,
+        "pages": 416,
+        "summary": "Plato's Socratic dialogue explores justice, the ideal state, and the nature of the soul. The foundational text of Western philosophy that shaped political theory and ethics for millennia.",
+        "read_link": "https://www.gutenberg.org/ebooks/1497",
+        "cover_color": "#7e57c2"
     },
     100: {
-        "title": "Love in the Time of Cholera",
-        "author": "Gabriel García Márquez",
-        "genre": "Romance",
-        "year": 1985,
-        "pages": 348,
-        "summary": "Florentino Ariza waits fifty years to declare his love to Fermina Daza. A lush, sweeping romance that explores love in all its forms—obsessive, requited, and eternal.",
-        "read_link": "https://www.amazon.com/Love-Time-Cholera-Gabriel-Garcia/dp/0307389731",
-        "cover_color": "#e84393"
+        "title": "Siddhartha",
+        "author": "Hermann Hesse",
+        "genre": "Fiction",
+        "year": 1922,
+        "pages": 152,
+        "summary": "A young Brahmin seeks enlightenment through different paths, from asceticism to sensual pleasure. Hesse's gentle novel explores Eastern philosophy and the journey to self-discovery and wisdom.",
+        "read_link": "https://www.gutenberg.org/ebooks/2500",
+        "cover_color": "#ff9800"
     }
 }
 
-def get_book_info(book_id):
-    """Get book information by ID"""
-    return BOOKS_DATABASE.get(book_id, None)
+def get_book_by_id(book_id):
+    """Get a book by its ID"""
+    return BOOKS_DATABASE.get(book_id)
 
 def get_all_books():
     """Get all books as a list"""
     return list(BOOKS_DATABASE.values())
 
-def search_books(query):
-    """Search books by title or author"""
-    query = query.lower()
-    results = []
-    for book_id, book in BOOKS_DATABASE.items():
-        if query in book['title'].lower() or query in book['author'].lower():
-            results.append({**book, 'book_id': book_id})
-    return results
+def get_books_by_genre(genre):
+    """Get all books of a specific genre"""
+    return [book for book in BOOKS_DATABASE.values() if book['genre'] == genre]
+
+def get_all_genres():
+    """Get all unique genres"""
+    return list(set(book['genre'] for book in BOOKS_DATABASE.values()))

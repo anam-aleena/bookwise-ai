@@ -139,26 +139,33 @@ st.markdown("""
         margin: 0.5rem 0;
     }
     
-    .read-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    .read-link, a.read-link, .book-card a.read-link, .library-card a.read-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
-        padding: 0.7rem 1.5rem;
-        border-radius: 25px;
+        padding: 0.7rem 1.5rem !important;
+        border-radius: 25px !important;
         text-decoration: none !important;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        margin-top: 1rem;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+        margin-top: 1rem !important;
+        border: none !important;
+        cursor: pointer !important;
     }
     
-    .read-link:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-        background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+    .read-link:hover, a.read-link:hover, .book-card a.read-link:hover, .library-card a.read-link:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6) !important;
+        background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%) !important;
+        color: white !important;
+    }
+    
+    .read-link:visited, a.read-link:visited {
+        color: white !important;
     }
     
     .algorithm-badge {
@@ -470,12 +477,23 @@ st.markdown("""
         background: transparent !important;
     }
     
-    a {
+    a:not(.read-link) {
         color: #4facfe !important;
     }
     
-    a:hover {
+    a:not(.read-link):hover {
         color: #f093fb !important;
+    }
+    
+    .stMarkdown a.read-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        display: inline-block !important;
+        padding: 0.7rem 1.5rem !important;
+        border-radius: 25px !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
     }
 </style>
 """, unsafe_allow_html=True)
