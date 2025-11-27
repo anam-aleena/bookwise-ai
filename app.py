@@ -427,6 +427,29 @@ st.markdown("""
         background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%) !important;
     }
     
+    .stLinkButton > a {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f39c12 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 50px !important;
+        padding: 0.8rem 2rem !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        letter-spacing: 0.5px !important;
+        text-transform: uppercase !important;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5), 0 3px 10px rgba(0,0,0,0.2) !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+    }
+    
+    .stLinkButton > a:hover {
+        transform: translateY(-5px) scale(1.05) !important;
+        box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6), 0 5px 15px rgba(0,0,0,0.3) !important;
+        background: linear-gradient(135deg, #f39c12 0%, #e74c3c 50%, #ff6b6b 100%) !important;
+        color: white !important;
+    }
+    
     .stSlider > div > div > div {
         color: white !important;
     }
@@ -686,40 +709,17 @@ with tab1:
             rating = min(5.0, 3.5 + (hash(book['title']) % 15) / 10)
             stars = '★' * int(rating) + '☆' * (5 - int(rating))
             
-            raw_summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
+            summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
             read_link = book.get('read_link', 'https://www.amazon.com/s?k=' + book['title'].replace(' ', '+'))
             
-            safe_title = html.escape(str(book['title']))
-            safe_author = html.escape(str(book['author']))
-            safe_summary = html.escape(str(raw_summary))
-            safe_genre = html.escape(str(book['genre']))
-            
-            st.markdown(f"""
-            <div class="book-card fade-in" style="animation-delay: {i * 0.1}s;">
-                <div class="book-title">{safe_title}</div>
-                <p class="book-author">by {safe_author}</p>
-                
-                <div class="book-summary">
-                    {safe_summary}
-                </div>
-                
-                <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center;">
-                    <span class="genre-tag">{safe_genre}</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">📅 {book['publication_year']}</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">📄 {book['pages']} pages</span>
-                    <span style="margin-left: auto;">
-                        <span class="rating-stars">{stars}</span>
-                        <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-left: 0.3rem;">{rating:.1f}</span>
-                    </span>
-                </div>
-                
-                <div style="margin-top: 1.2rem;">
-                    <a href="{read_link}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f39c12 100%); color: white; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5), 0 3px 10px rgba(0,0,0,0.2); transition: all 0.3s ease; text-transform: uppercase;">
-                        📖 Read Now
-                    </a>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+            with st.container():
+                st.markdown(f"""<div class="book-card fade-in">
+<h3 style="margin:0; color:#f093fb; font-size:1.4rem;">{book['title']}</h3>
+<p style="margin:0.3rem 0; color:rgba(255,255,255,0.7); font-style:italic;">by {book['author']}</p>
+<p style="margin:1rem 0; padding:1rem; background:rgba(102,126,234,0.15); border-radius:12px; border-left:3px solid #f093fb; color:rgba(255,255,255,0.9); line-height:1.6;">{summary}</p>
+<p style="margin:0.5rem 0;"><span style="background:linear-gradient(135deg,#fa709a,#fee140); color:#1a1a2e; padding:0.3rem 0.8rem; border-radius:15px; font-size:0.85rem; font-weight:600;">{book['genre']}</span> <span style="color:rgba(255,255,255,0.7); margin-left:1rem;">📅 {book['publication_year']} | 📄 {book['pages']} pages</span> <span style="float:right; color:#ffd700;">{stars} {rating:.1f}</span></p>
+</div>""", unsafe_allow_html=True)
+                st.link_button("📖 Read Now", read_link, use_container_width=False)
         
         if len(recommendations) == 0:
             st.warning("No books found matching your selected genres. Try selecting different genres or leaving the filter empty.")
@@ -799,36 +799,17 @@ with tab2:
     cols = st.columns(2)
     for idx, (_, book) in enumerate(all_books.iterrows()):
         with cols[idx % 2]:
-            raw_summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
+            summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
             read_link = book.get('read_link', 'https://www.amazon.com/s?k=' + book['title'].replace(' ', '+'))
             
-            safe_title = html.escape(str(book['title']))
-            safe_author = html.escape(str(book['author']))
-            safe_summary = html.escape(str(raw_summary))
-            safe_genre = html.escape(str(book['genre']))
-            
-            st.markdown(f"""
-            <div class="library-card">
-                <div class="book-title" style="font-size: 1.1rem;">{safe_title}</div>
-                <p class="book-author" style="font-size: 0.9rem;">by {safe_author}</p>
-                
-                <div class="book-summary" style="font-size: 0.85rem; padding: 0.8rem;">
-                    {safe_summary}
-                </div>
-                
-                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem;">
-                    <span class="genre-tag" style="font-size: 0.75rem; padding: 0.3rem 0.8rem;">{safe_genre}</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">📅 {book['publication_year']}</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">📄 {book['pages']} pages</span>
-                </div>
-                
-                <div style="margin-top: 1rem;">
-                    <a href="{read_link}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f39c12 100%); color: white; padding: 0.7rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); transition: all 0.3s ease; text-transform: uppercase;">
-                        📖 Read Now
-                    </a>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+            with st.container():
+                st.markdown(f"""<div class="library-card">
+<h4 style="margin:0; color:#f093fb; font-size:1.1rem;">{book['title']}</h4>
+<p style="margin:0.3rem 0; color:rgba(255,255,255,0.7); font-style:italic; font-size:0.9rem;">by {book['author']}</p>
+<p style="margin:0.8rem 0; padding:0.8rem; background:rgba(102,126,234,0.15); border-radius:10px; border-left:3px solid #f093fb; color:rgba(255,255,255,0.85); font-size:0.85rem; line-height:1.5;">{summary}</p>
+<p style="margin:0.5rem 0; font-size:0.85rem;"><span style="background:linear-gradient(135deg,#fa709a,#fee140); color:#1a1a2e; padding:0.25rem 0.6rem; border-radius:12px; font-weight:600;">{book['genre']}</span> <span style="color:rgba(255,255,255,0.6); margin-left:0.5rem;">📅 {book['publication_year']} | 📄 {book['pages']} pages</span></p>
+</div>""", unsafe_allow_html=True)
+                st.link_button("📖 Read Now", read_link, use_container_width=False)
 
 with tab3:
     st.markdown('<div class="recommendation-header"><h2>Your Personal Reading Journey</h2></div>', unsafe_allow_html=True)
