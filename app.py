@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import time
+import html
 from recommendation_system import AdvancedBookRecommendationSystem
 from data_generator import generate_book_data
 import utils
@@ -685,20 +686,25 @@ with tab1:
             rating = min(5.0, 3.5 + (hash(book['title']) % 15) / 10)
             stars = '★' * int(rating) + '☆' * (5 - int(rating))
             
-            summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
+            raw_summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
             read_link = book.get('read_link', 'https://www.amazon.com/s?k=' + book['title'].replace(' ', '+'))
+            
+            safe_title = html.escape(str(book['title']))
+            safe_author = html.escape(str(book['author']))
+            safe_summary = html.escape(str(raw_summary))
+            safe_genre = html.escape(str(book['genre']))
             
             st.markdown(f"""
             <div class="book-card fade-in" style="animation-delay: {i * 0.1}s;">
-                <div class="book-title">{book['title']}</div>
-                <p class="book-author">by {book['author']}</p>
+                <div class="book-title">{safe_title}</div>
+                <p class="book-author">by {safe_author}</p>
                 
                 <div class="book-summary">
-                    {summary}
+                    {safe_summary}
                 </div>
                 
                 <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center;">
-                    <span class="genre-tag">{book['genre']}</span>
+                    <span class="genre-tag">{safe_genre}</span>
                     <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">📅 {book['publication_year']}</span>
                     <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">📄 {book['pages']} pages</span>
                     <span style="margin-left: auto;">
@@ -793,20 +799,25 @@ with tab2:
     cols = st.columns(2)
     for idx, (_, book) in enumerate(all_books.iterrows()):
         with cols[idx % 2]:
-            summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
+            raw_summary = book.get('summary', 'An engaging book that explores themes of human nature, society, and the complexities of life.')
             read_link = book.get('read_link', 'https://www.amazon.com/s?k=' + book['title'].replace(' ', '+'))
+            
+            safe_title = html.escape(str(book['title']))
+            safe_author = html.escape(str(book['author']))
+            safe_summary = html.escape(str(raw_summary))
+            safe_genre = html.escape(str(book['genre']))
             
             st.markdown(f"""
             <div class="library-card">
-                <div class="book-title" style="font-size: 1.1rem;">{book['title']}</div>
-                <p class="book-author" style="font-size: 0.9rem;">by {book['author']}</p>
+                <div class="book-title" style="font-size: 1.1rem;">{safe_title}</div>
+                <p class="book-author" style="font-size: 0.9rem;">by {safe_author}</p>
                 
                 <div class="book-summary" style="font-size: 0.85rem; padding: 0.8rem;">
-                    {summary}
+                    {safe_summary}
                 </div>
                 
                 <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem;">
-                    <span class="genre-tag" style="font-size: 0.75rem; padding: 0.3rem 0.8rem;">{book['genre']}</span>
+                    <span class="genre-tag" style="font-size: 0.75rem; padding: 0.3rem 0.8rem;">{safe_genre}</span>
                     <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">📅 {book['publication_year']}</span>
                     <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">📄 {book['pages']} pages</span>
                 </div>
