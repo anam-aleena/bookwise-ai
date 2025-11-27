@@ -707,9 +707,11 @@ with tab1:
                     </span>
                 </div>
                 
-                <a href="{read_link}" target="_blank" class="read-link">
-                    📖 Read Now
-                </a>
+                <div style="margin-top: 1.2rem;">
+                    <a href="{read_link}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f39c12 100%); color: white; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5), 0 3px 10px rgba(0,0,0,0.2); transition: all 0.3s ease; text-transform: uppercase;">
+                        📖 Read Now
+                    </a>
+                </div>
             </div>
             """, unsafe_allow_html=True)
         
@@ -797,22 +799,23 @@ with tab2:
             st.markdown(f"""
             <div class="library-card">
                 <div class="book-title" style="font-size: 1.1rem;">{book['title']}</div>
+                <p class="book-author" style="font-size: 0.9rem;">by {book['author']}</p>
                 
                 <div class="book-summary" style="font-size: 0.85rem; padding: 0.8rem;">
                     {summary}
                 </div>
                 
-                <p class="book-author" style="font-size: 0.9rem;">by {book['author']}</p>
-                
                 <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem;">
                     <span class="genre-tag" style="font-size: 0.75rem; padding: 0.3rem 0.8rem;">{book['genre']}</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">{book['publication_year']}</span>
-                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">{book['pages']} pages</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">📅 {book['publication_year']}</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">📄 {book['pages']} pages</span>
                 </div>
                 
-                <a href="{read_link}" target="_blank" class="read-link" style="font-size: 0.85rem; padding: 0.7rem 1.5rem; margin-top: 1rem;">
-                    📖 Read Now
-                </a>
+                <div style="margin-top: 1rem;">
+                    <a href="{read_link}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f39c12 100%); color: white; padding: 0.7rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); transition: all 0.3s ease; text-transform: uppercase;">
+                        📖 Read Now
+                    </a>
+                </div>
             </div>
             """, unsafe_allow_html=True)
 
