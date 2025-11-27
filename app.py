@@ -331,12 +331,151 @@ st.markdown("""
         animation: fadeIn 0.6s ease-out forwards;
     }
     
-    h1, h2, h3, h4, p, span, div {
-        color: white;
+    h1, h2, h3, h4, h5, h6, p, span, div, label {
+        color: white !important;
     }
     
-    .stSelectbox label, .stSlider label, .stMultiSelect label {
+    .stSelectbox label, .stSlider label, .stMultiSelect label, .stTextInput label {
         color: rgba(255,255,255,0.9) !important;
+    }
+    
+    .stSelectbox > div > div, .stMultiSelect > div > div {
+        background-color: rgba(255,255,255,0.1) !important;
+        border-color: rgba(255,255,255,0.2) !important;
+        color: white !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"] > div {
+        background-color: rgba(255,255,255,0.1) !important;
+        border-color: rgba(255,255,255,0.2) !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"] span {
+        color: white !important;
+    }
+    
+    .stTextInput > div > div > input {
+        background-color: rgba(255,255,255,0.1) !important;
+        border-color: rgba(255,255,255,0.2) !important;
+        color: white !important;
+    }
+    
+    .stTextInput > div > div > input::placeholder {
+        color: rgba(255,255,255,0.5) !important;
+    }
+    
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 10px !important;
+        padding: 0.6rem 1.2rem !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6) !important;
+        background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%) !important;
+    }
+    
+    .stSlider > div > div > div {
+        color: white !important;
+    }
+    
+    .stSlider [data-testid="stTickBarMin"], .stSlider [data-testid="stTickBarMax"] {
+        color: white !important;
+    }
+    
+    div[data-testid="stMetricLabel"] {
+        color: rgba(255,255,255,0.8) !important;
+    }
+    
+    div[data-testid="stMetricLabel"] label {
+        color: rgba(255,255,255,0.8) !important;
+    }
+    
+    div[data-testid="stMetricDelta"] {
+        color: #92fe9d !important;
+    }
+    
+    .stMarkdown, .stMarkdown p, .stMarkdown span {
+        color: white !important;
+    }
+    
+    .stSubheader {
+        color: white !important;
+    }
+    
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, rgba(15,12,41,0.98) 0%, rgba(48,43,99,0.98) 100%) !important;
+    }
+    
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] h4, [data-testid="stSidebar"] p, [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label, [data-testid="stSidebar"] div {
+        color: white !important;
+    }
+    
+    .stAlert {
+        background-color: rgba(255,255,255,0.1) !important;
+        color: white !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
+    }
+    
+    .stInfo {
+        background-color: rgba(79, 172, 254, 0.2) !important;
+        color: white !important;
+    }
+    
+    .stWarning {
+        background-color: rgba(255, 193, 7, 0.2) !important;
+        color: white !important;
+    }
+    
+    .stSpinner > div {
+        color: white !important;
+    }
+    
+    .stExpander {
+        background-color: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 10px !important;
+    }
+    
+    .stExpander summary {
+        color: white !important;
+    }
+    
+    code {
+        background-color: rgba(0,0,0,0.3) !important;
+        color: #f093fb !important;
+    }
+    
+    .stCodeBlock {
+        background-color: rgba(0,0,0,0.4) !important;
+    }
+    
+    hr {
+        border-color: rgba(255,255,255,0.2) !important;
+    }
+    
+    .streamlit-expanderHeader {
+        color: white !important;
+    }
+    
+    [data-testid="column"] {
+        background: transparent !important;
+    }
+    
+    a {
+        color: #4facfe !important;
+    }
+    
+    a:hover {
+        color: #f093fb !important;
     }
 </style>
 """, unsafe_allow_html=True)
