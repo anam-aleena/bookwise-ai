@@ -654,7 +654,7 @@ with tab1:
         if len(selected_genres) > 0:
             recommendations = recommendations[recommendations['genre'].isin(selected_genres)]
         
-        st.markdown(f'<div class="algorithm-badge">{algo_name} | {generation_time:.3f}s | {len(recommendations)} books found</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="algorithm-badge">{len(recommendations)} Books Recommended for You</div>', unsafe_allow_html=True)
         
         if len(recommendations) > 0:
             genres_in_recs = recommendations['genre'].value_counts()
@@ -690,30 +690,21 @@ with tab1:
             
             st.markdown(f"""
             <div class="book-card fade-in" style="animation-delay: {i * 0.1}s;">
-                <div style="display: flex; justify-content: space-between; align-items: start;">
-                    <div style="flex: 1;">
-                        <div class="book-title">#{i} {book['title']}</div>
-                    </div>
-                    <div style="text-align: right;">
-                        <div class="rating-stars">{stars}</div>
-                        <p style="margin: 0; color: rgba(255,255,255,0.7); font-size: 0.9rem;">{rating:.1f}/5.0</p>
-                    </div>
-                </div>
+                <div class="book-title">{book['title']}</div>
+                <p class="book-author">by {book['author']}</p>
                 
                 <div class="book-summary">
                     {summary}
                 </div>
                 
-                <p class="book-author">by {book['author']}</p>
-                
                 <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; align-items: center;">
                     <span class="genre-tag">{book['genre']}</span>
-                    <span style="color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.3rem;">{book['publication_year']}</span>
-                    <span style="color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.3rem;">{book['pages']} pages</span>
-                </div>
-                
-                <div class="progress-bar-container">
-                    <div class="progress-bar" style="width: {rating * 20}%;"></div>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">📅 {book['publication_year']}</span>
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">📄 {book['pages']} pages</span>
+                    <span style="margin-left: auto;">
+                        <span class="rating-stars">{stars}</span>
+                        <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-left: 0.3rem;">{rating:.1f}</span>
+                    </span>
                 </div>
                 
                 <a href="{read_link}" target="_blank" class="read-link">
