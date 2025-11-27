@@ -386,18 +386,58 @@ st.markdown("""
     }
     
     .stSelectbox > div > div, .stMultiSelect > div > div {
-        background-color: rgba(255,255,255,0.1) !important;
-        border-color: rgba(255,255,255,0.2) !important;
+        background: linear-gradient(135deg, rgba(102,126,234,0.4) 0%, rgba(118,75,162,0.4) 100%) !important;
+        border: 2px solid rgba(240,147,251,0.4) !important;
+        border-radius: 12px !important;
         color: white !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .stSelectbox > div > div:hover, .stMultiSelect > div > div:hover {
+        background: linear-gradient(135deg, rgba(102,126,234,0.6) 0%, rgba(118,75,162,0.6) 100%) !important;
+        border-color: rgba(240,147,251,0.7) !important;
+        box-shadow: 0 6px 20px rgba(240, 147, 251, 0.4) !important;
+        transform: translateY(-2px) !important;
     }
     
     .stSelectbox [data-baseweb="select"] > div {
-        background-color: rgba(255,255,255,0.1) !important;
-        border-color: rgba(255,255,255,0.2) !important;
+        background: linear-gradient(135deg, rgba(102,126,234,0.4) 0%, rgba(118,75,162,0.4) 100%) !important;
+        border: 2px solid rgba(240,147,251,0.4) !important;
+        border-radius: 12px !important;
     }
     
     .stSelectbox [data-baseweb="select"] span {
         color: white !important;
+    }
+    
+    .stMultiSelect [data-baseweb="tag"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        border-radius: 20px !important;
+        color: white !important;
+        border: none !important;
+    }
+    
+    .stMultiSelect [data-baseweb="tag"] span {
+        color: white !important;
+    }
+    
+    [data-baseweb="popover"] {
+        background: linear-gradient(180deg, rgba(15,12,41,0.98) 0%, rgba(48,43,99,0.98) 100%) !important;
+        border: 1px solid rgba(240,147,251,0.3) !important;
+        border-radius: 12px !important;
+    }
+    
+    [data-baseweb="menu"] {
+        background: transparent !important;
+    }
+    
+    [data-baseweb="menu"] li {
+        color: white !important;
+    }
+    
+    [data-baseweb="menu"] li:hover {
+        background: linear-gradient(135deg, rgba(102,126,234,0.5) 0%, rgba(118,75,162,0.5) 100%) !important;
     }
     
     .stTextInput > div > div > input {
