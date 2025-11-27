@@ -423,9 +423,10 @@ st.markdown("""
     }
     
     [data-baseweb="popover"] {
-        background: linear-gradient(180deg, rgba(15,12,41,0.98) 0%, rgba(48,43,99,0.98) 100%) !important;
-        border: 1px solid rgba(240,147,251,0.3) !important;
+        background: linear-gradient(180deg, rgba(15,12,41,0.99) 0%, rgba(48,43,99,0.99) 100%) !important;
+        border: 2px solid rgba(240,147,251,0.5) !important;
         border-radius: 12px !important;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 20px rgba(240,147,251,0.2) !important;
     }
     
     [data-baseweb="menu"] {
@@ -434,10 +435,38 @@ st.markdown("""
     
     [data-baseweb="menu"] li {
         color: white !important;
+        padding: 12px 16px !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    [data-baseweb="menu"] li:last-child {
+        border-bottom: none !important;
     }
     
     [data-baseweb="menu"] li:hover {
-        background: linear-gradient(135deg, rgba(102,126,234,0.5) 0%, rgba(118,75,162,0.5) 100%) !important;
+        background: linear-gradient(135deg, rgba(102,126,234,0.6) 0%, rgba(118,75,162,0.6) 100%) !important;
+        padding-left: 20px !important;
+    }
+    
+    [data-baseweb="menu"] li[aria-selected="true"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        font-weight: 600 !important;
+    }
+    
+    ul[role="listbox"] li {
+        color: white !important;
+        background: rgba(30,20,60,0.9) !important;
+        padding: 10px 15px !important;
+        margin: 2px 0 !important;
+        border-radius: 8px !important;
+    }
+    
+    ul[role="listbox"] li:hover {
+        background: linear-gradient(135deg, rgba(102,126,234,0.7) 0%, rgba(118,75,162,0.7) 100%) !important;
     }
     
     .stTextInput > div > div > input {
