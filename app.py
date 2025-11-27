@@ -122,14 +122,28 @@ st.markdown("""
     }
     
     .book-summary {
-        color: rgba(255,255,255,0.85);
+        color: rgba(255,255,255,0.9);
         font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.7;
         margin: 1rem 0;
-        padding: 1rem;
-        background: rgba(255,255,255,0.05);
-        border-radius: 12px;
-        border-left: 3px solid #f093fb;
+        padding: 1.2rem 1.5rem;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(240, 147, 251, 0.1) 100%);
+        border-radius: 16px;
+        border-left: 4px solid;
+        border-image: linear-gradient(180deg, #f093fb 0%, #4facfe 100%) 1;
+        position: relative;
+        font-style: italic;
+    }
+    
+    .book-summary::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 15px;
+        font-size: 3rem;
+        color: rgba(240, 147, 251, 0.4);
+        font-family: Georgia, serif;
+        line-height: 1;
     }
     
     .book-author {
@@ -142,26 +156,50 @@ st.markdown("""
     .read-link, a.read-link, .book-card a.read-link, .library-card a.read-link {
         display: inline-flex !important;
         align-items: center !important;
-        gap: 0.5rem !important;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        justify-content: center !important;
+        gap: 0.6rem !important;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f39c12 100%) !important;
         color: white !important;
-        padding: 0.7rem 1.5rem !important;
-        border-radius: 25px !important;
+        padding: 0.9rem 2rem !important;
+        border-radius: 50px !important;
         text-decoration: none !important;
-        font-weight: 600 !important;
-        font-size: 0.9rem !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
-        margin-top: 1rem !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        letter-spacing: 0.5px !important;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5), 0 3px 10px rgba(0,0,0,0.2) !important;
+        margin-top: 1.2rem !important;
         border: none !important;
         cursor: pointer !important;
+        position: relative !important;
+        overflow: hidden !important;
+        text-transform: uppercase !important;
+    }
+    
+    .read-link::before, a.read-link::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) !important;
+        transition: left 0.5s ease !important;
+    }
+    
+    .read-link:hover::before, a.read-link:hover::before {
+        left: 100% !important;
     }
     
     .read-link:hover, a.read-link:hover, .book-card a.read-link:hover, .library-card a.read-link:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6) !important;
-        background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%) !important;
+        transform: translateY(-5px) scale(1.05) !important;
+        box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6), 0 5px 15px rgba(0,0,0,0.3) !important;
+        background: linear-gradient(135deg, #f39c12 0%, #e74c3c 50%, #ff6b6b 100%) !important;
         color: white !important;
+    }
+    
+    .read-link:active, a.read-link:active {
+        transform: translateY(-2px) scale(1.02) !important;
     }
     
     .read-link:visited, a.read-link:visited {
@@ -679,7 +717,7 @@ with tab1:
                 </div>
                 
                 <a href="{read_link}" target="_blank" class="read-link">
-                    Read This Book
+                    📖 Read Now
                 </a>
             </div>
             """, unsafe_allow_html=True)
@@ -781,8 +819,8 @@ with tab2:
                     <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">{book['pages']} pages</span>
                 </div>
                 
-                <a href="{read_link}" target="_blank" class="read-link" style="font-size: 0.8rem; padding: 0.5rem 1rem; margin-top: 0.8rem;">
-                    Read Book
+                <a href="{read_link}" target="_blank" class="read-link" style="font-size: 0.85rem; padding: 0.7rem 1.5rem; margin-top: 1rem;">
+                    📖 Read Now
                 </a>
             </div>
             """, unsafe_allow_html=True)
