@@ -424,7 +424,8 @@ st.markdown("""
     
     [data-baseweb="popover"], 
     [data-baseweb="popover"] > div,
-    div[data-baseweb="popover"] {
+    div[data-baseweb="popover"],
+    [data-baseweb="popover"] * {
         background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%) !important;
         border: 2px solid rgba(240,147,251,0.5) !important;
         border-radius: 12px !important;
@@ -433,30 +434,42 @@ st.markdown("""
     
     [data-baseweb="menu"],
     [data-baseweb="menu"] > div,
-    ul[role="listbox"] {
+    ul[role="listbox"],
+    [data-baseweb="select"] [data-baseweb="popover"] ul,
+    div[data-baseweb="menu"] {
         background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%) !important;
         border-radius: 10px !important;
+        border: none !important;
     }
     
     [data-baseweb="menu"] li,
     ul[role="listbox"] li,
     div[role="option"],
-    [data-baseweb="menu"] [role="option"] {
+    [data-baseweb="menu"] [role="option"],
+    [data-baseweb="select"] li,
+    [data-baseweb="popover"] li,
+    [data-baseweb="list-item"],
+    div[data-baseweb="menu"] li,
+    ul[data-baseweb="menu"] li {
         color: white !important;
-        background: linear-gradient(135deg, rgba(102,126,234,0.3) 0%, rgba(118,75,162,0.3) 100%) !important;
+        background: linear-gradient(135deg, rgba(102,126,234,0.5) 0%, rgba(118,75,162,0.5) 100%) !important;
         padding: 14px 18px !important;
         font-size: 1rem !important;
         font-weight: 500 !important;
         margin: 4px 8px !important;
         border-radius: 10px !important;
-        border: 1px solid rgba(240,147,251,0.2) !important;
+        border: 1px solid rgba(240,147,251,0.3) !important;
         transition: all 0.3s ease !important;
     }
     
     [data-baseweb="menu"] li:hover,
     ul[role="listbox"] li:hover,
     div[role="option"]:hover,
-    [data-baseweb="menu"] [role="option"]:hover {
+    [data-baseweb="menu"] [role="option"]:hover,
+    [data-baseweb="select"] li:hover,
+    [data-baseweb="popover"] li:hover,
+    [data-baseweb="list-item"]:hover,
+    div[data-baseweb="menu"] li:hover {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         border-color: rgba(240,147,251,0.6) !important;
         transform: scale(1.02) !important;
@@ -465,20 +478,35 @@ st.markdown("""
     
     [data-baseweb="menu"] li[aria-selected="true"],
     ul[role="listbox"] li[aria-selected="true"],
-    div[role="option"][aria-selected="true"] {
+    div[role="option"][aria-selected="true"],
+    [data-baseweb="select"] li[aria-selected="true"],
+    [data-baseweb="popover"] li[aria-selected="true"] {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
         font-weight: 600 !important;
         border-color: #f093fb !important;
     }
     
-    [data-baseweb="list"] {
+    [data-baseweb="list"],
+    [data-baseweb="menu-list"] {
         background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%) !important;
     }
     
-    [data-baseweb="list"] > li {
+    [data-baseweb="list"] > li,
+    [data-baseweb="menu-list"] > li {
         color: white !important;
-        background: linear-gradient(135deg, rgba(102,126,234,0.3) 0%, rgba(118,75,162,0.3) 100%) !important;
+        background: linear-gradient(135deg, rgba(102,126,234,0.5) 0%, rgba(118,75,162,0.5) 100%) !important;
+        border: 1px solid rgba(240,147,251,0.3) !important;
+        border-radius: 10px !important;
+        margin: 4px 8px !important;
+    }
+    
+    /* Override any white backgrounds in dropdowns */
+    [data-baseweb="popover"] div,
+    [data-baseweb="menu"] div,
+    ul[role="listbox"] > div {
+        background: transparent !important;
+        border: none !important;
     }
     
     .stTextInput > div > div > input {
