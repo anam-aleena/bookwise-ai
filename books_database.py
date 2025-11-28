@@ -743,6 +743,7 @@ BOOKS_DATABASE = {
         "summary": "Noble families vie for the Iron Throne while an ancient threat stirs in the frozen north. Martin's epic fantasy redefined the genre with its moral complexity, political intrigue, and shocking twists.",
         "read_link": "https://openlibrary.org/works/OL257943W/A_Game_of_Thrones?edition=key:/books/OL58636603M",
         "cover_color": "#b71c1c"
+
     },
     75: {
         "title": "The Night Circus",
